@@ -2,7 +2,7 @@
 :root {
   --primary-color: #5a67d8;   /* soft indigo */
   --accent-color: #f6ad55;    /* warm orange */
-  --bg-color: #fdfcfb;        /* off-white pastel background */
+  --bg-color: #ca7a2a;        /* off-white pastel background */
   --card-bg: #ffffff;
   --text-color: #2d3748;
   --muted-text: #718096;
@@ -227,8 +227,8 @@ main {
 footer {
   text-align: center;
   padding: 1.5rem;
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color:#fff;
+  color: #000000;
   font-size: 0.9rem;
   margin-top: 4rem;
   border-top-left-radius: var(--radius);
