@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Course Home Page for Web and Computer Programming Certificate">
+  <meta name="author" content="Idehen Noma">
+  
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Main JavaScript -->
+  <script src="script.js" defer></script>
+  
+  <title>Course Work | Idehen Noma</title>
+</head>
+
+<body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="header-content">
+      <img src="images/profile.jpg" alt="Profile picture of Idehen Noma" class="profile-image" />
+      <span class="name">Idehen Noma</span>
+    </div>
+
+    <nav id="navbar">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="#" class="active" title="Home">Home</a></li>
+        <li><a href="https://www/" title="Visit Chamber project">Chamber</a></li>
+        <li><a href="https://github.com/" title="Visit GitHub profile">GitHub</a></li>
+        <li><a href="https://linkedin.com/" title="Visit LinkedIn profile">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+    <!-- ===== Course Work Section ===== -->
+    <section class="flex-container">
+      <div class="course-work-container">
+        <h1>Course Work</h1>
+        <ul>
+          <li>Frontend Web Development</li>
+          <li>Programming with Classes</li>
+          <li>Dynamic Web Applications</li>
+        </ul>
+      </div>
+
+      <div class="lagos-container">
+        <h2>Lagos, Nigeria</h2>
+        <img src="images/imageprofie.jpg" alt="Beautiful view of Lagos, Nigeria" class="lagos-image">
+        <p>
+        <p>
+      Lagos, Nigeria — a city where creativity meets innovation. From its vibrant tech scene to its rich cultural heartbeat, Lagos inspires growth, resilience, and a forward-thinking spirit that fuels my passion for web development.
+     </p>
+
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Courses Section ===== -->
+    <section class="courses-section">
+      <h2>Web and Computer Programming</h2>
+      <div id="filter-buttons">
+        <button id="all-btn">All Courses</button>
+        <button id="wdd-btn">WDD Courses</button>
+        <button id="cse-btn">CSE Courses</button>
+      </div>
+
+      <div id="course-list"></div>
+      <p id="total-credits">Total Credits: 0</p>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+   <section class="footer-info">
+  <h2>Contact Information</h2>
+  <p>
+     I’m always open to professional connections, collaborations, or inquiries related to web and software development.  
+    Please feel free to reach out if you’d like to discuss projects, ideas, or opportunities.
+  </p>
+</section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>
+      &copy; <span id="year"></span> Idehen Noma |
+      Last Modified: <span id="lastModified"></span>
+    </p>
+  </footer>
+</body>
+</html>
