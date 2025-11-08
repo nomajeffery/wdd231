@@ -10,7 +10,7 @@ menuButton.addEventListener("click", () => {
   menuButton.textContent = navList.classList.contains("open") ? "✖" : "☰";
 });
 
-//  Fetch and Display Members from JSON
+// Fetch and Display Members from JSON
 async function loadMembers() {
   try {
     const response = await fetch("data/members.json");
