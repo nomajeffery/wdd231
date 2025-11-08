@@ -1,0 +1,67 @@
+{
+  "members": [
+    {
+      "name": "Dr. Aisha Bello",
+      "address": "25 Marina Rd, Lagos",
+      "phone": "(+234) 701-222-1111",
+      "website": "https://aishabelloclinic.com",
+      "image": "aisha.webp",
+      "membership": "Gold Member",
+      "specialty": "Cardiologist"
+    },
+    {
+      "name": "Dr. John Eze",
+      "address": "15 Unity Ave, Abuja",
+      "phone": "(+234) 803-555-9999",
+      "website": "https://ezehealth.com",
+      "image": "john.webp",
+      "membership": "Silver Member",
+      "specialty": "Pediatrician"
+    },
+    {
+      "name": "Dr. Tunde Akpan",
+      "address": "99 Hospital Rd, Ibadan",
+      "phone": "(+234) 807-444-3333",
+      "website": "https://akpancjjjlinic.com",
+      "image": "tunde.webp",
+      "membership": "Bronze Member",
+      "specialty": "Dermatologist"
+    },
+    {
+      "name": "Dr. Chioma Nwosu",
+      "address": "8 Wellness St, Port Harcourt",
+      "phone": "(+234) 809-222-6666",
+      "website": "https://nwosumedjjjical.com",
+      "image": "chioma.webp",
+      "membership": "Gold Member",
+      "specialty": "Gynecologist"
+    },
+    {
+      "name": "Dr. Peter Odili",
+      "address": "40 Health Blvd, Enugu",
+      "phone": "(+234) 812-333-5555",
+      "website": "https://odilimjjjedcenter.com",
+      "image": "peter.webp",
+      "membership": "Silver Member",
+      "specialty": "Orthopedic Surgeon"
+    },
+    {
+      "name": "Dr. Zainab Yusuf",
+      "address": "60 Peace Lane, Kano",
+      "phone": "(+234) 801-777-0000",
+      "website": "https://yusufjjjclinic.com",
+      "image": "zainab.webp",
+      "membership": "Gold Member",
+      "specialty": "Neurologist"
+    },
+    {
+      "name": "Dr. David Umeh",
+      "address": "17 Care Crescent, Jos",
+      "phone": "(+234) 805-111-4444",
+      "website": "https://umehjjfamilycare.com",
+      "image": "david.webp",
+      "membership": "Bronze Member",
+      "specialty": "General Practitioner"
+    }
+  ]
+}
