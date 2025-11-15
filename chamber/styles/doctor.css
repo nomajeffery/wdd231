@@ -1,0 +1,291 @@
+/* ============================================================
+   ROOT VARIABLES
+   ============================================================ */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-accent: #004aad;
+  --color-accent-light: #e0ecff;
+  --color-border: #cccccc;
+  --color-footer-bg: #002b64;
+  --font-body: "Poppins", sans-serif;
+  --transition-fast: 0.2s ease-in-out;
+  --shadow-soft: 0 4px 10px rgba(0,0,0,0.10);
+  --shadow-medium: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 60px;
+  border-radius: 50%;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  font-weight: 500;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE MENU */
+#menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: block;
+  }
+  #main-nav {
+    display: none;
+    width: 100%;
+  }
+  #main-nav.open {
+    display: block;
+  }
+  .nav-links {
+    flex-direction: column;
+    background: var(--color-accent);
+    padding: 1rem;
+  }
+}
+
+/* ============================================================
+    HERO SECTION
+   ============================================================ */
+.hero-static {
+  position: relative;
+  height: 65vh;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.hero-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-static .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  color: #fff;
+}
+
+.hero-static h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 0.8rem;
+}
+
+.hero-static p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.cta-btn {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.cta-btn:hover {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   EVENTS SECTION
+   ============================================================ */
+.events {
+  padding: 3.5rem 1rem;
+  text-align: center;
+}
+
+.events h2 {
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-grid article {
+  background: var(--color-accent-light);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-fast);
+}
+
+.event-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.event-grid h3 {
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   WEATHER SECTION
+   ============================================================ */
+.weather {
+  padding: 3.5rem 1rem;
+  text-align: center;
+  background: var(--color-accent-light);
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.weather h2 {
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   DOCTOR SPOTLIGHT SECTION
+   ============================================================ */
+.spotlights {
+  padding: 3.5rem 1rem;
+  text-align: center;
+}
+
+.spotlights h2 {
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.spotlight-grid article {
+  background: var(--color-accent-light);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-fast);
+}
+
+.spotlight-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.spotlight-grid img {
+  width: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+}
+
+.spotlight-grid h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--color-footer-bg);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ============================================================
+   DARK MODE SUPPORT
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0e0e0e;
+    --color-text: #ffffff;
+    --color-accent: #9cc8ff;
+    --color-accent-light: #003366;
+    --color-border: #333;
+    --color-footer-bg: #001224;
+  }
+}
