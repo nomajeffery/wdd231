@@ -48,7 +48,7 @@ async function loadWeather() {
 loadWeather();
 
 async function loadSpotlights() {
-  const res = await fetch("data/member.json");
+  const res = await fetch("data/members.json");
   const data = await res.json();
 
   const goldSilver = data.members.filter(
