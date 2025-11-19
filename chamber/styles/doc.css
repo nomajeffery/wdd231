@@ -23,7 +23,7 @@ a { color: var(--color-accent); text-decoration: none; }
 
 header {
   background: var(--color-accent);
-  color: #000000;
+  color: #ffffff;
   padding: 0.7rem;
   position: sticky;
   top: 0;
