@@ -12,8 +12,8 @@ menuBtn.addEventListener("click", () => {
 
 
 // WEATHER API
-const API_KEY = "YOUR_API_KEY_HERE";  
-const CITY = "Benin City";
+const API_KEY = "b99acdcc84243d2d976b8e99b99aacfb";  
+const CITY = "benin";
 const weatherBox = document.getElementById("weather-data");
 
 async function loadWeather() {
