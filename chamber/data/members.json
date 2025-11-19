@@ -6,7 +6,7 @@
       "phone": "(+234) 701-222-1111",
       "website": "https://aishabelloclinic.com",
       "image": "images/brightsmile.webp",
-      "membership": "Gold Member",
+      "membership": "gold",
       "specialty": "Cardiologist"
     },
     {
@@ -15,7 +15,7 @@
       "phone": "(+234) 803-555-9999",
       "website": "https://ezehealth.com",
       "image": "images/downtown.webp",
-      "membership": "Silver Member",
+      "membership": "silver",
       "specialty": "Pediatrician"
     },
     {
@@ -23,8 +23,8 @@
       "address": "99 Hospital Rd, Ibadan",
       "phone": "(+234) 807-444-3333",
       "website": "https://akpancjjjlinic.com",
-      "image": "tunde.webp",
-      "membership": "Bronze Member",
+      "image": "images/tunde.webp",
+      "membership": "bronze",
       "specialty": "Dermatologist"
     },
     {
@@ -33,7 +33,7 @@
       "phone": "(+234) 809-222-6666",
       "website": "https://nwosumedjjjical.com",
       "image": "images/edscare.webp",
-      "membership": "Gold Member",
+      "membership": "gold",
       "specialty": "Gynecologist"
     },
     {
@@ -42,7 +42,7 @@
       "phone": "(+234) 812-333-5555",
       "website": "https://odilimjjjedcenter.com",
       "image": "images/familydental.webp",
-      "membership": "Silver Member",
+      "membership": "silver",
       "specialty": "Orthopedic Surgeon"
     },
     {
@@ -51,7 +51,7 @@
       "phone": "(+234) 801-777-0000",
       "website": "https://yusufjjjclinic.com",
       "image": "images/healthy.webp",
-      "membership": "Gold Member",
+      "membership": "gold",
       "specialty": "Neurologist"
     },
     {
@@ -60,7 +60,7 @@
       "phone": "(+234) 805-111-4444",
       "website": "https://umehjjfamilycare.com",
       "image": "images/oceanview.webp",
-      "membership": "Bronze Member",
+      "membership": "bronze",
       "specialty": "General Practitioner"
     }
   ]

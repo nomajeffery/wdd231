@@ -1,89 +1,77 @@
-// Responsive menu
-const menuBtn = document.getElementById('menu-btn');
-const navLinks = document.querySelector('.nav-links');
-menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+// FOOTER YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
 
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+// MOBILE MENU
+const menuBtn = document.getElementById("menu-btn");
+const nav = document.getElementById("main-nav");
 
-// WEATHER SECTION (OpenWeather API)
-const apiKey = ""; 
-const city = "edo";
-const weatherContainer = document.getElementById("weather-data");
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", nav.classList.contains("open"));
+});
 
-async function getWeather() {
+const API_KEY = "YOUR_API_KEY_HERE";  
+const CITY = "Benin City";
+const weatherBox = document.getElementById("weather-data");
+
+async function loadWeather() {
   try {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
-    const res = await fetch(url);
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`
+    );
     const data = await res.json();
 
     const current = data.list[0];
-    const currentTemp = Math.round(current.main.temp);
-    const description = current.weather[0].description;
+    const temp = Math.round(current.main.temp);
+    const desc = current.weather[0].description;
 
     const forecast = data.list.filter((_, i) => i % 8 === 0).slice(1, 4);
 
-    weatherContainer.innerHTML = `
-      <p><strong>Current:</strong> ${currentTemp}°F, ${description}</p>
+    weatherBox.innerHTML = `
+      <p><strong>Current:</strong> ${temp}°C – ${desc}</p>
       <h3>3-Day Forecast</h3>
       <ul>
         ${forecast
           .map(
-            (day) => `
-          <li>${new Date(day.dt_txt).toLocaleDateString([], { weekday: "short" })}: ${Math.round(day.main.temp)}°F</li>
-        `
+            (day) =>
+              `<li>${new Date(day.dt_txt).toLocaleDateString("en-US", {
+                weekday: "short",
+              })}: ${Math.round(day.main.temp)}°C</li>`
           )
           .join("")}
-      </ul>
-    `;
-  } catch (error) {
-    weatherContainer.innerHTML = `<p>Weather data unavailable.</p>`;
+      </ul>`;
+  } catch (err) {
+    weatherBox.innerHTML = "<p>Weather unavailable.</p>";
   }
 }
-getWeather();
 
-// COMPANY SPOTLIGHT
+loadWeather();
+
 async function loadSpotlights() {
-  const res = await fetch("data/menber.json");
+  const res = await fetch("data/member.json");
   const data = await res.json();
 
   const goldSilver = data.members.filter(
-    (m) => m.membership === "Gold" || m.membership === "Silver"
+    (m) => m.membership === "gold" || m.membership === "silver"
   );
-  const selected = goldSilver.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+  const selected = goldSilver.sort(() => Math.random() - 0.5).slice(0, 3);
 
   const container = document.getElementById("spotlight-container");
-  container.innerHTML = selected
-    .map(
-      (m) => `
-    <div class="spotlight">
-      <img src="${m.logo}" alt="${m.name} logo" />
-      <h3>${m.name}</h3>
-      <p>${m.membership} Member</p>
-      <p>📞 ${m.phone}</p>
-      <p>📍 ${m.address}</p>
-      <a href="${m.website}" target="_blank" class="cta-btn">Visit Website</a>
-    </div>`
-    )
-    .join("");
-}
-loadSpotlights();
+  container.innerHTML = "";
 
-
-let heroIndex = 0;
-autoHeroSlides();
-
-function autoHeroSlides() {
-  const slides = document.querySelectorAll(".hero-slide");
-  slides.forEach(slide => {
-    slide.style.display = "none";
+  selected.forEach((m) => {
+    container.innerHTML += `
+      <article>
+        <img src="${m.image}" alt="${m.name}" width="160" height="160">
+        <h3>${m.name}</h3>
+        <p><strong>${m.membership.toUpperCase()}</strong></p>
+        <p>Specialty: ${m.specialty}</p>
+        <p>📍 ${m.address}</p>
+        <p>📞 ${m.phone}</p>
+        <a href="${m.website}" target="_blank" class="cta-btn">Visit Website</a>
+      </article>`;
   });
-
-  heroIndex++;
-  if (heroIndex > slides.length) heroIndex = 1;
-
-  const currentSlide = slides[heroIndex - 1];
-  currentSlide.style.display = "block";
-
-  setTimeout(autoHeroSlides, 5000); // Change every 5 seconds
 }
+
+loadSpotlights();

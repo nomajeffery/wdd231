@@ -3,108 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dr. HealthChamber – your trusted healthcare and medical services.">
-   <meta name="author" content="Idehen Noma">
+  <meta name="description" content="Dr. HealthChamber – connecting patients with top healthcare professionals.">
+  <meta name="author" content="Idehen Noma">
   <title>Dr. HealthChamber</title>
-  <link rel="stylesheet" href="styles/doctor.css">
-  <link rel="stylesheet" href="styles/doc">
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/doc.css">
+
   <script defer src="scripts/doctor.js"></script>
+  <script defer src="scripts/weather.js"></script>
+  <script defer src="scripts/spotlight.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/downtown.webp">
 
-   <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-
-   <!-- Open Graph Meta -->
-  <meta property="og:title" content="DoctorConnect | Medical Directory">
-  <meta property="og:description" content="Explore the DoctorConnect Directory – connecting verified doctors and clinics across Nigeria.">
-  <meta property="og:image" content="https://nomajeffery.github.io/wdd231/chamber/images/city.webp">
-  <meta property="og:url" content="https://nomajeffery.github.io/wdd231/chamber/directory.html">
-  <meta property="og:type" content="website">
 </head>
 
 <body>
-  <header>
-    <div class="header-container">
-      <img src="images/downtown.webp" alt="Dr. HealthChamber Logo" class="logo">
-      <h1>Dr. HealthChamber</h1>
 
-      <button id="menu-btn" aria-label="Menu">&#9776;</button>
-      <nav id="main-nav">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="directory.html">Directory</a></li>
-          <li><a href="join.html">Join</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+<header>
+  <div class="header-container">
+    <img src="images/downtown.webp" alt="Dr. HealthChamber Logo" class="logo" width="60" height="60">
+    <h1>Dr. HealthChamber</h1>
+
+    <!-- Accessible Menu Button -->
+    <button id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+
+    <nav id="main-nav">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO SECTION -->
+  <section class="hero-static">
+    <img src="images/full.webp" alt="Doctor Consulting Patient" width="1900" height="900">
+    <div class="overlay">
+      <h2>Your Health, Our Priority</h2>
+      <p>Providing compassionate care for you and your family.</p>
+      <a href="appointments.html" class="cta-btn">Book an Appointment</a>
     </div>
-  </header>
+  </section>
 
-  <main>
+  <!-- EVENTS -->
+  <section class="events">
+    <h2>Upcoming Health Camps</h2>
+    <div class="event-grid">
+      <article>
+        <h3>Free Health Checkup Camp</h3>
+        <p>November 20, 2025 – 10:00 AM</p>
+        <p>Comprehensive health screening and consultation with our experts.</p>
+      </article>
+      <article>
+        <h3>Diabetes Awareness Seminar</h3>
+        <p>December 10, 2025 – 2:00 PM</p>
+        <p>Learn about diabetes prevention and healthy lifestyle tips.</p>
+      </article>
+    </div>
+  </section>
 
-    <!--HERO SECTION -->
-    <section class="hero-static">
-      <img src="images/full.webp" alt="Doctor Consulting Patient">
-      <div class="overlay">
-        <h2>Your Health, Our Priority</h2>
-        <p>Providing compassionate care for you and your family.</p>
-        <a href="appointments.html" class="cta-btn">Book an Appointment</a>
-      </div>
-    </section>
+  <!-- WEATHER -->
+  <section class="weather">
+    <h2>Local Weather</h2>
+    <div id="weather-data">
+      <p>Loading weather data...</p>
+    </div>
+  </section>
 
-    <!-- UPCOMING EVENTS / HEALTH CAMPS -->
-    <section class="events">
-      <h2>Upcoming Health Camps</h2>
-      <div class="event-grid">
-        <article>
-          <h3>Free Health Checkup Camp</h3>
-          <p>November 20, 2025 – 10:00 AM</p>
-          <p>Comprehensive health screening and consultation with our experts.</p>
-        </article>
-        <article>
-          <h3>Diabetes Awareness Seminar</h3>
-          <p>December 10, 2025 – 2:00 PM</p>
-          <p>Learn about diabetes prevention, management, and healthy lifestyle tips.</p>
-        </article>
-      </div>
-    </section>
+  <!-- SPOTLIGHT -->
+  <section class="spotlights">
+    <h2>Featured Doctors</h2>
+    <div class="spotlight-grid" id="spotlight-container">
+      <!-- JS inserts spotlight cards here -->
+    </div>
+  </section>
 
-    <!-- LOCAL WEATHER -->
-    <section class="weather">
-      <h2>Local Weather</h2>
-      <div id="weather-data">
-        <p>Loading weather data...</p>
-      </div>
-    </section>
+</main>
 
-    <!-- DOCTOR SPOTLIGHT -->
-    <section class="spotlights">
-      <h2>Our Doctors</h2>
-      <div class="spotlight-grid">
-        <article>
-          <img src="images/photodoc.webp" alt="Dr. Smith">
-          <h3>Dr. Alice Smith</h3>
-          <p>Cardiologist with 15 years of experience in heart care and preventive medicine.</p>
-        </article>
-        <article>
-          <img src="images/main1.webp" alt="Dr. John Doe">
-          <h3>Dr. John Doe</h3>
-          <p>General Physician specializing in family medicine and wellness programs.</p>
-        </article>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year"></span> Dr. HealthChamber</p>
-    <p>123 Health Avenue, Lagos, Nigeria</p>
-  </footer>
+<footer>
+  <p>&copy; <span id="year"></span> Dr. HealthChamber</p>
+  <p>123 Health Avenue, Lagos, Nigeria</p>
+</footer>
 
 </body>
 </html>
