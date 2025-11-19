@@ -10,6 +10,8 @@ menuBtn.addEventListener("click", () => {
   menuBtn.setAttribute("aria-expanded", nav.classList.contains("open"));
 });
 
+
+// WEATHER API
 const API_KEY = "YOUR_API_KEY_HERE";  
 const CITY = "Benin City";
 const weatherBox = document.getElementById("weather-data");
@@ -25,7 +27,7 @@ async function loadWeather() {
     const temp = Math.round(current.main.temp);
     const desc = current.weather[0].description;
 
-    const forecast = data.list.filter((_, i) => i % 8 === 0).slice(1, 4);
+    const forecast = data.list.filter((_, i) => i % 8 === 0).slice(1, 3);
 
     weatherBox.innerHTML = `
       <p><strong>Current:</strong> ${temp}°C – ${desc}</p>
@@ -47,31 +49,37 @@ async function loadWeather() {
 
 loadWeather();
 
+
+// SPOTLIGHT SECTION
 async function loadSpotlights() {
-  const res = await fetch("data/members.json");
-  const data = await res.json();
+  try {
+    const res = await fetch("data/members.json");
+    const data = await res.json();
 
-  const goldSilver = data.members.filter(
-    (m) => m.membership === "gold" || m.membership === "silver"
-  );
+    const goldSilver = data.members.filter(
+      (m) => m.membership === "gold" || m.membership === "silver"
+    );
 
-  const selected = goldSilver.sort(() => Math.random() - 0.5).slice(0, 3);
+    const selected = goldSilver.sort(() => Math.random() - 0.5).slice(0, 3);
 
-  const container = document.getElementById("spotlight-container");
-  container.innerHTML = "";
+    const container = document.getElementById("spotlight-container");
+    container.innerHTML = "";
 
-  selected.forEach((m) => {
-    container.innerHTML += `
-      <article>
-        <img src="${m.image}" alt="${m.name}" width="160" height="160">
-        <h3>${m.name}</h3>
-        <p><strong>${m.membership.toUpperCase()}</strong></p>
-        <p>Specialty: ${m.specialty}</p>
-        <p>📍 ${m.address}</p>
-        <p>📞 ${m.phone}</p>
-        <a href="${m.website}" target="_blank" class="cta-btn">Visit Website</a>
-      </article>`;
-  });
+    selected.forEach((m) => {
+      container.innerHTML += `
+        <article class="spotlight-card">
+          <img src="${m.image}" alt="${m.name}" width="160" height="160">
+          <h3>${m.name}</h3>
+          <p><strong>${m.membership.toUpperCase()}</strong></p>
+          <p>Specialty: ${m.specialty}</p>
+          <p> ${m.address}</p>
+          <p> ${m.phone}</p>
+          <a href="${m.website}" target="_blank" class="cta-btn">Visit Website</a>
+        </article>`;
+    });
+  } catch (error) {
+    console.error("Spotlight Error:", error);
+  }
 }
 
 loadSpotlights();
