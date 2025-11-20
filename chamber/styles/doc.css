@@ -8,8 +8,11 @@
     --color-accent-light: #e0ecff;
     --color-border: #cccccc;
     --color-footer-bg: #002b64;
+
     --font-body: "Poppins", sans-serif;
+
     --transition-fast: 0.2s ease-in-out;
+
     --shadow-soft: 0 4px 10px rgba(0,0,0,0.10);
     --shadow-medium: 0 6px 14px rgba(0,0,0,0.18);
 }
@@ -93,38 +96,110 @@ nav {
     text-decoration: underline;
 }
 
-/* MOBILE MENU */
+/* ============================================================
+   ACCESSIBLE MOBILE MENU BUTTON (UPDATED)
+   ============================================================ */
+
+/* Base button */
 #menu-btn {
-    display: none;
+    width: 48px;       /* WCAG minimum tap size */
+    height: 48px;
     background: none;
     border: none;
-    color: #fff;
-    font-size: 2rem;
+    cursor: pointer;
+    display: none;     /* hidden on desktop */
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-@media (max-width: 768px) {
-    #menu-btn {
-        display: block;
-    }
+/* Hamburger bars */
+#menu-btn::before,
+#menu-btn::after,
+#menu-btn div {
+    content: "";
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    border-radius: 2px;
+    transition: 0.3s ease-in-out;
+}
 
+/* Middle bar */
+#menu-btn div {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Top bar */
+#menu-btn::before {
+    top: 14px;
+}
+
+/* Bottom bar */
+#menu-btn::after {
+    bottom: 14px;
+}
+
+/* When active (turns into X) */
+#menu-btn.open::before {
+    transform: translateY(6px) rotate(45deg);
+}
+#menu-btn.open::after {
+    transform: translateY(-6px) rotate(-45deg);
+}
+#menu-btn.open div {
+    opacity: 0;
+}
+
+/* ============================================================
+   MOBILE MENU BEHAVIOR
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* Make nav full-width and below header */
     #main-nav {
-        display: none;
         width: 100%;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--color-accent);
+        z-index: 999;
     }
 
     #main-nav.open {
         display: block;
     }
 
+    /* Fix ul not aligning properly */
     .nav-links {
+        display: flex;
         flex-direction: column;
-        background: var(--color-accent);
+        width: 100%;
         padding: 1rem;
+        background: var(--color-accent);
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    /* Make links easy to see + tap */
+    .nav-links a {
+        width: 100%;
+        display: block;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.75rem 0;
     }
 }
 
 /* ============================================================
-    HERO SECTION
+   HERO SECTION
    ============================================================ */
 .hero-static {
     position: relative;
@@ -144,8 +219,13 @@ nav {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -45%);
     text-align: center;
+
+    /* Accessibility contrast fix */
+    background: rgba(0,0,0,0.45);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
     color: #fff;
 }
 
@@ -166,6 +246,7 @@ nav {
     border-radius: 6px;
     font-weight: 600;
     transition: var(--transition-fast);
+    display: inline-block;
 }
 
 .cta-btn:hover {
@@ -220,7 +301,6 @@ nav {
     border-top: 2px solid var(--color-border);
     border-bottom: 2px solid var(--color-border);
 }
-
 
 .weather h2 {
     color: var(--color-accent);
@@ -291,5 +371,9 @@ footer {
         --color-accent-light: #003366;
         --color-border: #333;
         --color-footer-bg: #001224;
+    }
+
+    .hero-static .overlay {
+        background: rgba(0,0,0,0.55);
     }
 }
