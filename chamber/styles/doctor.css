@@ -43,11 +43,11 @@ a:hover {
    HEADER
    ============================================================ */
 header {
-  background: var(--color-accent);
-  color: #fff;
+  background: #001224;;
+  color: #ffffff;
   padding: 0.6rem 1rem;
   position: sticky;
-  top: 0;
+  top: 100;
   z-index: 1000;
 }
 
