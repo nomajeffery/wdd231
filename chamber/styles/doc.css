@@ -1,258 +1,295 @@
-/* -----------------------------
+/* ============================================================
    ROOT VARIABLES
------------------------------- */
+   ============================================================ */
 :root {
-  --color-accent: #004aad;
-  --color-text: #111;
-  --color-bg: #fff;
-  --color-light: #e0ecff;
-  --color-border: #ccc;
-  --shadow: 0 4px 10px rgba(0,0,0,0.1);
-  --radius: 8px;
-  --transition: 0.25s ease;
+    --color-bg: #ffffff;
+    --color-text: #111111;
+    --color-accent: #004aad;
+    --color-accent-light: #e0ecff;
+    --color-border: #cccccc;
+    --color-footer-bg: #002b64;
+    --font-body: "Poppins", sans-serif;
+    --transition-fast: 0.2s ease-in-out;
+    --shadow-soft: 0 4px 10px rgba(0,0,0,0.10);
+    --shadow-medium: 0 6px 14px rgba(0,0,0,0.18);
 }
 
-/* -----------------------------
-   BASE STYLES
------------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
 body {
-  font-family: "Poppins", sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.5;
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
 a {
-  text-decoration: none;
-  color: var(--color-accent);
+    text-decoration: none;
+    color: var(--color-accent);
 }
 
-ul {
-  list-style: none;
+a:hover {
+    text-decoration: underline;
 }
 
-/* -----------------------------
-   HEADER & NAVIGATION
------------------------------- */
+/* ============================================================
+   HEADER
+   ============================================================ */
 header {
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.7rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+    width: 60px;
+    border-radius: 50%;
 }
 
-/* Desktop nav */
-nav#main-nav {
-  display: flex;
+header h1 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+    list-style: none;
+    display: flex;
+    gap: 1.3rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
-  color: #fff;
-  font-size: 1rem;
-  transition: var(--transition);
+    color: #fff;
+    font-weight: 500;
 }
 
+.nav-links a.active,
 .nav-links a:hover {
-  opacity: 0.8;
+    text-decoration: underline;
 }
 
-.nav-links a.active {
-  text-decoration: underline;
-}
-
-/* Mobile Menu Button */
+/* MOBILE MENU */
 #menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2.2rem;
-  cursor: pointer;
-  transition: var(--transition);
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
 }
 
-#menu-btn:active {
-  transform: scale(0.9);
-}
-
-/* -----------------------------
-   MOBILE NAVIGATION
------------------------------- */
 @media (max-width: 768px) {
-  #menu-btn {
-    display: block;
-  }
+    #menu-btn {
+        display: block;
+    }
 
-  nav#main-nav {
-    display: none; /* hidden until opened */
-    width: 100%;
-  }
+    #main-nav {
+        display: none;
+        width: 100%;
+    }
 
-  nav#main-nav.open {
-    display: block;
-    animation: dropdown 0.25s ease;
-  }
+    #main-nav.open {
+        display: block;
+    }
 
-  @keyframes dropdown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .nav-links {
-    flex-direction: column;
-    background: var(--color-accent);
-    padding: 1.5rem 1rem;
-    width: 100%;
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  .nav-links a {
-    font-size: 1.2rem;
-  }
+    .nav-links {
+        flex-direction: column;
+        background: var(--color-accent);
+        padding: 1rem;
+    }
 }
 
-/* -----------------------------
-   HERO SECTION
------------------------------- */
+/* ============================================================
+    HERO SECTION
+   ============================================================ */
 .hero-static {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+    position: relative;
+    height: 65vh;
+    min-height: 380px;
+    overflow: hidden;
 }
 
-.hero-static .hero-img,
 .hero-static img {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
 }
 
 .hero-static .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.55); /* fixed contrast */
-  color: #fff;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    color: #fff;
 }
 
-.overlay h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.hero-static h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 0.8rem;
 }
 
-.overlay p {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin-bottom: 1rem;
+.hero-static p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
 }
 
 .cta-btn {
-  background: #0060d4;
-  color: #fff;
-  padding: 0.9rem 1.8rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--transition-fast);
 }
 
 .cta-btn:hover {
-  background: #003e8a;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
 }
 
-/* -----------------------------
-   SECTIONS
------------------------------- */
-section {
-  max-width: 1200px;
-  margin: 2.5rem auto;
-  padding: 0 1rem;
+/* ============================================================
+   EVENTS SECTION
+   ============================================================ */
+.events {
+    padding: 3.5rem 1rem;
+    text-align: center;
 }
 
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--color-accent);
+.events h2 {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
 }
 
-/* Events grid */
 .event-grid {
-  display: grid;
-  gap: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
 
 .event-grid article {
-  border: 1px solid var(--color-border);
-  padding: 1rem;
-  border-radius: var(--radius);
-  background: var(--color-light);
+    background: var(--color-accent-light);
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-fast);
 }
 
-/* Spotlight grid */
+.event-grid article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.event-grid h3 {
+    color: var(--color-accent);
+}
+
+/* ============================================================
+   WEATHER SECTION
+   ============================================================ */
+.weather {
+    padding: 3.5rem 1rem;
+    text-align: center;
+    background: var(--color-accent-light);
+    border-top: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
+}
+
+
+.weather h2 {
+    color: var(--color-accent);
+}
+
+/* ============================================================
+   DOCTOR SPOTLIGHT SECTION
+   ============================================================ */
+.spotlights {
+    padding: 3.5rem 1rem;
+    text-align: center;
+}
+
+.spotlights h2 {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+}
+
 .spotlight-grid {
-  display: grid;
-  gap: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
 }
 
-@media (min-width: 700px) {
-  .event-grid,
-  .spotlight-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.spotlight-grid article {
+    background: var(--color-accent-light);
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-fast);
 }
 
-/* -----------------------------
+.spotlight-grid article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.spotlight-grid img {
+    width: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+}
+
+.spotlight-grid h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+/* ============================================================
    FOOTER
------------------------------- */
+   ============================================================ */
 footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: var(--color-light);
-  margin-top: 2rem;
+    background: var(--color-footer-bg);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* ============================================================
+   DARK MODE SUPPORT
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #0e0e0e;
+        --color-text: #ffffff;
+        --color-accent: #9cc8ff;
+        --color-accent-light: #003366;
+        --color-border: #333;
+        --color-footer-bg: #001224;
+    }
 }
