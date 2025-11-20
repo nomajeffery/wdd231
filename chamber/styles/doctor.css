@@ -1,3 +1,4 @@
+
 /* ============================================================
    ROOT VARIABLES
    ============================================================ */
@@ -43,11 +44,11 @@ a:hover {
    HEADER
    ============================================================ */
 header {
-  background: #001224;;
+  background: #001224;
   color: #ffffff;
   padding: 0.6rem 1rem;
   position: sticky;
-  top: 100;
+  top: 0;               /* FIXED */
   z-index: 1000;
 }
 
@@ -56,6 +57,7 @@ header {
   margin: auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;   /* FIXED */
   gap: 1rem;
 }
 
@@ -120,7 +122,7 @@ nav {
   }
 }
 
-/* /* ============================================================
+/* ============================================================
    HERO SECTION
    ============================================================ */
 .hero-static {
@@ -160,7 +162,6 @@ nav {
     font-size: 1.1rem;
     margin-bottom: 1.2rem;
 }
-
 
 .cta-btn {
     background: var(--color-accent);
