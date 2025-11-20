@@ -108,12 +108,11 @@ nav {
   color: #fff;
   font-size: 2rem;
   cursor: pointer;
+   display: none;
 }
 
-/*  hidden by default on desktop */
-#menu-btn {
-  display: none;
-}
+/*  hidden by default on desktop 
+}*/
 
 @media (max-width: 768px) {
   #menu-btn {
@@ -176,7 +175,7 @@ nav {
 }
 
 .cta-btn {
-    background: var(--color-accent);
+    background:rgb(0,51,102);
     color: #fff;
     padding: 0.8rem 1.6rem;
     border-radius: 6px;
