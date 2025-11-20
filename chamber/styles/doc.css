@@ -142,7 +142,7 @@ nav {
     bottom: 14px;
 }
 
-/* When active (turns into X) */
+/* When active  */
 #menu-btn.open::before {
     transform: translateY(6px) rotate(45deg);
 }
@@ -173,7 +173,7 @@ nav {
         display: block;
     }
 
-    /* Fix ul not aligning properly */
+    /*  not aligning properly */
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -188,7 +188,7 @@ nav {
         width: 100%;
     }
 
-    /* Make links easy to see + tap */
+    /* Make links  */
     .nav-links a {
         width: 100%;
         display: block;
