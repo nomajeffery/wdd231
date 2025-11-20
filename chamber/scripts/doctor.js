@@ -1,14 +1,16 @@
 // FOOTER YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
-
-// MOBILE MENU
 const menuBtn = document.getElementById("menu-btn");
-const nav = document.getElementById("main-nav");
+const mainNav = document.getElementById("main-nav");
 
 menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", nav.classList.contains("open"));
+  mainNav.classList.toggle("open");
+
+  // Update ARIA expanded state
+  const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+  menuBtn.setAttribute("aria-expanded", !expanded);
 });
+
 
 
 // WEATHER API
