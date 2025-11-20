@@ -48,16 +48,23 @@ header {
   color: #ffffff;
   padding: 0.6rem 1rem;
   position: sticky;
-  top: 0;               /* FIXED */
+  top: 0;
   z-index: 1000;
 }
 
+/*  ADDED: Proper spacing and alignment */
 .header-container {
   max-width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;   /* FIXED */
+  justify-content: space-between; /* */
+}
+
+/*  Group logo + title */
+.header-left {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -69,7 +76,6 @@ header {
 header h1 {
   font-size: 1.7rem;
   font-weight: 600;
-  flex: 1;
 }
 
 /* NAVIGATION */
@@ -97,27 +103,35 @@ nav {
 
 /* MOBILE MENU */
 #menu-btn {
-  display: none;
   background: none;
   border: none;
   color: #fff;
   font-size: 2rem;
+  cursor: pointer;
+}
+
+/*  hidden by default on desktop */
+#menu-btn {
+  display: none;
 }
 
 @media (max-width: 768px) {
   #menu-btn {
     display: block;
   }
+
   #main-nav {
     display: none;
     width: 100%;
   }
+
   #main-nav.open {
     display: block;
   }
+
   .nav-links {
     flex-direction: column;
-    background: var(--color-accent);
+    background: rgba(0,0,0,0.10);;
     padding: 1rem;
   }
 }
@@ -145,8 +159,6 @@ nav {
     left: 50%;
     transform: translate(-50%, -45%);
     text-align: center;
-
-    /* Accessibility contrast fix */
     background: rgba(0,0,0,0.45);
     padding: 1.5rem 2rem;
     border-radius: 10px;
