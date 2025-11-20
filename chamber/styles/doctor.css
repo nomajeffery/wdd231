@@ -120,54 +120,61 @@ nav {
   }
 }
 
-/* ============================================================
-    HERO SECTION
+/* /* ============================================================
+   HERO SECTION
    ============================================================ */
 .hero-static {
-  position: relative;
-  height: 65vh;
-  min-height: 380px;
-  overflow: hidden;
+    position: relative;
+    height: 65vh;
+    min-height: 380px;
+    overflow: hidden;
 }
 
 .hero-static img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(70%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
 }
 
 .hero-static .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-  text-align: center;
-  color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    text-align: center;
+
+    /* Accessibility contrast fix */
+    background: rgba(0,0,0,0.45);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    color: #fff;
 }
 
 .hero-static h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  margin-bottom: 0.8rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 0.8rem;
 }
 
 .hero-static p {
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
 }
 
+
 .cta-btn {
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: var(--transition-fast);
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    display: inline-block;
 }
 
 .cta-btn:hover {
-  background: var(--color-accent-light);
-  color: var(--color-accent);
+    background: var(--color-accent-light);
+    color: var(--color-accent);
 }
 
 /* ============================================================
