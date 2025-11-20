@@ -12,7 +12,7 @@ menuBtn.addEventListener("click", () => {
 
 
 // WEATHER API
-const API_KEY = "b99acdcc84243d2d976b8e99b99aacfb";  
+const API_KEY = "b99acdcc84243d2d976b8e99b99aacfb";
 const CITY = "benin";
 const weatherBox = document.getElementById("weather-data");
 
@@ -23,25 +23,49 @@ async function loadWeather() {
     );
     const data = await res.json();
 
-    const current = data.list[0];
+    // ---- CURRENT WEATHER (closest time block) ----
+    const now = new Date();
+    let current = data.list.reduce((closest, item) => {
+      return Math.abs(new Date(item.dt_txt) - now) <
+        Math.abs(new Date(closest.dt_txt) - now)
+        ? item
+        : closest;
+    });
+
     const temp = Math.round(current.main.temp);
     const desc = current.weather[0].description;
 
-    const forecast = data.list.filter((_, i) => i % 8 === 0).slice(1, 3);
+    // ---- 3-DAY FORECAST (group by day) ----
+    const days = {};
 
+    data.list.forEach((entry) => {
+      const date = new Date(entry.dt_txt);
+      const day = date.toLocaleDateString("en-US", { weekday: "short" });
+
+      if (!days[day]) days[day] = [];
+      days[day].push(entry);
+    });
+
+    const today = new Date().toLocaleDateString("en-US", { weekday: "short" });
+
+    const forecastHTML = Object.entries(days)
+      .filter(([day]) => day !== today) // ignore today
+      .slice(0, 3)                       // next 3 days
+      .map(([day, entries]) => {
+        const avgTemp =
+          entries.reduce((sum, e) => sum + e.main.temp, 0) / entries.length;
+
+        return `<li>${day}: ${Math.round(avgTemp)}°C</li>`;
+      })
+      .join("");
+
+    // ---- OUTPUT ----
     weatherBox.innerHTML = `
       <p><strong>Current:</strong> ${temp}°C – ${desc}</p>
       <h3>3-Day Forecast</h3>
-      <ul>
-        ${forecast
-          .map(
-            (day) =>
-              `<li>${new Date(day.dt_txt).toLocaleDateString("en-US", {
-                weekday: "short",
-              })}: ${Math.round(day.main.temp)}°C</li>`
-          )
-          .join("")}
-      </ul>`;
+      <ul>${forecastHTML}</ul>
+    `;
+
   } catch (err) {
     weatherBox.innerHTML = "<p>Weather unavailable.</p>";
   }
