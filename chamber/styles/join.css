@@ -155,14 +155,14 @@ input[type="submit"]:hover {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(22, 21, 21, 0.5);
     justify-content: center;
     align-items: center;
     padding: 1rem;
 }
 
 .modal-content {
-    background: white;
+    background: rgb(46, 24, 170);
     padding: 2rem;
     width: min(500px, 90%);
     border-radius: 10px;
