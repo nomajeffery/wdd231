@@ -3,75 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamber Membership Join | Dr. HealthChamber</title>
-    <meta name="description" content="Join the Chamber of Commerce to access business growth resources, networking opportunities, and exclusive member benefits.">
+    <title>Join Dr. HealthChamber – Chamber of Commerce Membership</title>
+    <meta name="description" content="Become a member to access business growth resources, networking, and exclusive benefits tailored for doctors.">
     <meta name="author" content="Idehen Noma">
 
-    <meta property="og:title" content="Join the Chamber of Commerce">
-    <meta property="og:description" content="Explore membership levels and join the Chamber to gain access to exclusive benefits, networking, and business opportunities.">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Join Dr. HealthChamber – Chamber of Commerce Membership">
+    <meta property="og:description" content="Become a member to access business growth resources, networking, and exclusive benefits tailored for doctors.">
     <meta property="og:image" content="https://nomajeffery.github.io/wdd231/chamber/images/city.webp">
     <meta property="og:url" content="https://nomajeffery.github.io/wdd231/chamber/join.html">
     <meta property="og:type" content="website">
 
-    <!-- Stylesheet -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/newway.css">
     <link rel="stylesheet" href="styles/join.css">
 
-    <!-- Scripts -->
+    <!-- JS -->
     <script defer src="scripts/menu.js"></script>
-    <script defer src="scripts/join.js"></script>
-    
+    <script defer src="scripts/menu.js"></script>
 </head>
 <body>
 
 <header>
-    <h1>Chamber of Doctor Membership</h1>
+    <div class="header-container">
+        <div class="header-left">
+            <img src="images/logo.png" alt="HealthChamber Logo" class="logo">
+            <h1>Dr. HealthChamber</h1>
+        </div>
 
-    <!-- Navigation -->
-    <nav id="main-nav">
-        <button id="menu-btn" aria-expanded="false">☰ Menu</button>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="join.html">Join</a></li>
-            <li><a href="members.html">Members</a></li>
-        </ul>
-    </nav>
+        <button id="menu-btn" aria-expanded="false">☰</button>
 
-    <!-- Dark Mode Toggle -->
-    <button id="dark-toggle">🌙 Dark Mode</button>
+        <nav id="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+                <li><a href="members.html">Members</a></li>
+            </ul>
+        </nav>
+
+        <button id="dark-toggle" title="Toggle dark mode">🌙 Dark Mode</button>
+    </div>
 </header>
 
 <main class="container" role="main">
-
-    <!-- Membership Form -->
     <form id="join-form" action="thankyou.html" method="get">
         <h2>Join the Chamber</h2>
 
-        <label>First Name:
-            <input type="text" name="firstName" autocomplete="given-name" required>
+        <label>
+            First Name:
+            <input type="text" name="firstName" autocomplete="given-name" title="Enter your first name" required>
         </label>
 
-        <label>Last Name:
-            <input type="text" name="lastName" autocomplete="family-name" required>
+        <label>
+            Last Name:
+            <input type="text" name="lastName" autocomplete="family-name" title="Enter your last name" required>
         </label>
 
-        <label>Organizational Title:
-            <input type="text" name="orgTitle" autocomplete="job-title" placeholder="e.g., Senior Manager">
+        <label>
+            Organizational Title:
+            <input type="text" name="orgTitle" autocomplete="organization-title" title="Enter your title (e.g., Manager)">
         </label>
 
-        <label>Email Address:
-            <input type="email" name="email" autocomplete="email" required>
+        <label>
+            Email Address:
+            <input type="email" name="email" autocomplete="email" title="Enter a valid email (e.g., name@example.com)" required>
         </label>
 
-        <label>Mobile Phone:
-            <input type="tel" name="phone" autocomplete="tel" required placeholder="+234 000 0000">
+        <label>
+            Mobile Phone:
+            <input type="tel" name="phone" autocomplete="tel" title="Enter your phone number with country code" required placeholder="+234 000 0000">
         </label>
 
-        <label>Business/Organization Name:
-            <input type="text" name="businessName" autocomplete="organization" required>
+        <label>
+            Business/Organization Name:
+            <input type="text" name="businessName" autocomplete="organization" title="Enter your organization name" required>
         </label>
 
-        <label>Membership Level:
-            <select name="membershipLevel" id="membershipLevel" required>
+        <label>
+            Membership Level:
+            <select name="membershipLevel" id="membershipLevel" title="Select your membership level" required>
                 <option value="">Select level</option>
                 <option value="np">NP Membership (No Fee)</option>
                 <option value="bronze">Bronze Membership</option>
@@ -80,28 +98,24 @@
             </select>
         </label>
 
-        <div id="membership-price"></div>
-
-        <label>Business Description:
-            <textarea name="description" rows="4"></textarea>
+        <label>
+            Business Description:
+            <textarea name="description" title="Provide a short description of your organization" rows="4"></textarea>
         </label>
 
         <input type="hidden" name="timestamp" id="timestamp">
-
         <input type="submit" value="Submit Application">
     </form>
 
-    <!-- Membership Cards -->
     <div class="membership-cards">
         <div class="card" data-modal="modal-np">NP Membership <a href="#">Learn More</a></div>
         <div class="card" data-modal="modal-bronze">Bronze Membership <a href="#">Learn More</a></div>
         <div class="card" data-modal="modal-silver">Silver Membership <a href="#">Learn More</a></div>
         <div class="card" data-modal="modal-gold">Gold Membership <a href="#">Learn More</a></div>
     </div>
-
 </main>
 
-<!-- Modals -->
+<!-- Modal Templates -->
 <div id="modal-np" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -113,7 +127,6 @@
         </ul>
     </div>
 </div>
-
 <div id="modal-bronze" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -125,7 +138,6 @@
         </ul>
     </div>
 </div>
-
 <div id="modal-silver" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -137,7 +149,6 @@
         </ul>
     </div>
 </div>
-
 <div id="modal-gold" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
