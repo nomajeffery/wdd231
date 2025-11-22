@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamber Membership Join | Dr. HealthChamber</title>
+    <meta name="description" content="Join the Chamber of Commerce to access business growth resources, networking opportunities, and exclusive member benefits.">
+    <meta name="author" content="Idehen Noma">
+
+    <meta property="og:title" content="Join the Chamber of Commerce">
+    <meta property="og:description" content="Explore membership levels and join the Chamber to gain access to exclusive benefits, networking, and business opportunities.">
+    <meta property="og:image" content="https://nomajeffery.github.io/wdd231/chamber/images/city.webp">
+    <meta property="og:url" content="https://nomajeffery.github.io/wdd231/chamber/join.html">
+    <meta property="og:type" content="website">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/join.css">
+
+    <!-- Scripts -->
+    <script defer src="scripts/menu.js"></script>
+    <script defer src="scripts/join.js"></script>
+    
+</head>
+<body>
+
+<header>
+    <h1>Chamber of Doctor Membership</h1>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <button id="menu-btn" aria-expanded="false">☰ Menu</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="members.html">Members</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-toggle">🌙 Dark Mode</button>
+</header>
+
+<main class="container" role="main">
+
+    <!-- Membership Form -->
+    <form id="join-form" action="thankyou.html" method="get">
+        <h2>Join the Chamber</h2>
+
+        <label>First Name:
+            <input type="text" name="firstName" autocomplete="given-name" required>
+        </label>
+
+        <label>Last Name:
+            <input type="text" name="lastName" autocomplete="family-name" required>
+        </label>
+
+        <label>Organizational Title:
+            <input type="text" name="orgTitle" autocomplete="job-title" placeholder="e.g., Senior Manager">
+        </label>
+
+        <label>Email Address:
+            <input type="email" name="email" autocomplete="email" required>
+        </label>
+
+        <label>Mobile Phone:
+            <input type="tel" name="phone" autocomplete="tel" required placeholder="+234 000 0000">
+        </label>
+
+        <label>Business/Organization Name:
+            <input type="text" name="businessName" autocomplete="organization" required>
+        </label>
+
+        <label>Membership Level:
+            <select name="membershipLevel" id="membershipLevel" required>
+                <option value="">Select level</option>
+                <option value="np">NP Membership (No Fee)</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+            </select>
+        </label>
+
+        <div id="membership-price"></div>
+
+        <label>Business Description:
+            <textarea name="description" rows="4"></textarea>
+        </label>
+
+        <input type="hidden" name="timestamp" id="timestamp">
+
+        <input type="submit" value="Submit Application">
+    </form>
+
+    <!-- Membership Cards -->
+    <div class="membership-cards">
+        <div class="card" data-modal="modal-np">NP Membership <a href="#">Learn More</a></div>
+        <div class="card" data-modal="modal-bronze">Bronze Membership <a href="#">Learn More</a></div>
+        <div class="card" data-modal="modal-silver">Silver Membership <a href="#">Learn More</a></div>
+        <div class="card" data-modal="modal-gold">Gold Membership <a href="#">Learn More</a></div>
+    </div>
+
+</main>
+
+<!-- Modals -->
+<div id="modal-np" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>NP Membership Benefits</h3>
+        <ul>
+            <li>No Fee</li>
+            <li>Access to chamber events</li>
+            <li>Newsletter subscription</li>
+        </ul>
+    </div>
+</div>
+
+<div id="modal-bronze" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Bronze Membership Benefits</h3>
+        <ul>
+            <li>Spotlight on website</li>
+            <li>Event discounts</li>
+            <li>Networking opportunities</li>
+        </ul>
+    </div>
+</div>
+
+<div id="modal-silver" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Silver Membership Benefits</h3>
+        <ul>
+            <li>Everything in Bronze</li>
+            <li>Advertising in newsletter</li>
+            <li>Exclusive training sessions</li>
+        </ul>
+    </div>
+</div>
+
+<div id="modal-gold" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Gold Membership Benefits</h3>
+        <ul>
+            <li>Everything in Silver</li>
+            <li>Spotlight on homepage</li>
+            <li>Priority event invitations</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="year"></span> Chamber of Doctor</p>
+</footer>
+
+</body>
+</html>
