@@ -159,6 +159,9 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+
+    /* FIX: ensure text over dark overlay is visible */
+    color: #fff;
 }
 
 .modal-content {
@@ -168,6 +171,9 @@ input[type="submit"]:hover {
     border-radius: 10px;
     position: relative;
     animation: fadeIn .3s ease;
+
+    /* FIX: WCAG contrast (white text on purple passes) */
+    color: #fff;
 }
 
 body.dark .modal-content {
