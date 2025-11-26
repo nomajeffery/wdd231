@@ -4,6 +4,7 @@
   --color-text: #111111;
   --color-accent: #004aad;
   --color-accent-light: #e0ecff;
+  --color-cta: rgb(0,51,102);
   --color-border: #cccccc;
   --color-footer-bg: #002b64;
   --color-header-bg: #001224;
@@ -16,6 +17,7 @@
     --color-text: #ffffff;
     --color-accent: #9cc8ff;
     --color-accent-light: #003366;
+    --color-cta: rgb(0,51,102);
     --color-border: #333333;
     --color-footer-bg: #001224;
     --color-header-bg: #001224;

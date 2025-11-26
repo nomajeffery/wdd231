@@ -1,7 +1,7 @@
 /* General Page Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-body);
     background: var(--color-bg);
     color: var(--color-text);
     transition: background .3s, color .3s;
@@ -53,12 +53,14 @@ header h1 {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     display: none; /* hidden on desktop */
+    position: relative;
+    z-index: 9999;
 }
 
 /* Dark Mode Button */
 #dark-toggle {
-    background: #222;
-    color: white;
+    background: transparent;
+    color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 6px;
@@ -92,7 +94,7 @@ body.dark #dark-toggle {
 }
 
 /* Ensure logo image is responsive and small */
-.logo img { width: 48px; height: 48px; border-radius: 50%; margin-right: 0.6rem; }
+.logo img { width: 60px; height: 60px; border-radius: 50%; margin-right: 0.6rem; }
 .logo span { font-weight: 600; margin-left: 0.4rem; }
 
 /* Mobile-friendly main-nav open behavior (integrates with menu.js)
@@ -118,7 +120,7 @@ input, select, textarea {
 
 .submit-btn {
     margin-top: 1.5rem;
-    background: var(--color-accent);
+    background: var(--color-cta);
     color: white;
     border: none;
     cursor: pointer;
@@ -197,8 +199,8 @@ input, select, textarea {
 .modal-content, .modal-content * { color: #fff; }
 
 body.dark .modal-content {
-    background: #222;
-    color: white;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 .close {
@@ -225,4 +227,6 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+    background: var(--color-footer-bg);
+    color: #fff;
 }
