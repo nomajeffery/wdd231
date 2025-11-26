@@ -2,20 +2,20 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #222;
+    background: var(--color-bg);
+    color: var(--color-text);
     transition: background .3s, color .3s;
 }
 
 body.dark {
-    background: #111;
-    color: #eee;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 /* Header & Navigation */
 header {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-header-bg);
+    color: #fff;
     padding: 1rem;
 }
 
@@ -47,7 +47,7 @@ header h1 {
 /* Menu button */
 #menu-btn {
     cursor: pointer;
-    background: var(--color-accent);
+    background: transparent;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -66,8 +66,8 @@ header h1 {
 }
 
 body.dark #dark-toggle {
-    background: #eee;
-    color: #111;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 /* Responsive Navigation */
@@ -78,7 +78,7 @@ body.dark #dark-toggle {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
-        background: var(--color-accent);
+        background: var(--color-header-bg);
         padding: 1rem;
         border-radius: 6px;
     }
@@ -112,7 +112,7 @@ input, select, textarea {
     padding: .7rem;
     margin-top: .3rem;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     font-size: 1rem;
 }
 
@@ -163,7 +163,7 @@ input, select, textarea {
 
 .card a { color: var(--color-accent); text-decoration: underline; }
 
-.card:focus { outline: 3px solid #ffcc00; outline-offset: 3px; }
+.card:focus { outline: var(--focus-outline); outline-offset: 3px; }
 
 /* Modals */
 .modal {
@@ -182,7 +182,7 @@ input, select, textarea {
 .modal.is-open { display: flex; }
 
 .modal-content {
-    background: rgb(46, 24, 170);
+    background: var(--color-accent);
     padding: 2rem;
     width: min(500px, 90%);
     border-radius: 10px;

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chamber Discover Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover local businesses, doctors, and events in the Health Chamber.">
+  <link rel="stylesheet" href="styles/discover.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">Dr. HealthChamber</a>
+      <button class="navbar-toggler" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html" class="active">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h1>Discover Local Health Services</h1>
+      <p id="visit-message"></p>
+    </section>
+
+    <!-- Cards built from JSON -->
+    <section class="cards-grid">
+      <!-- Example card -->
+      <article class="card">
+        <img src="images/doctor1.webp" alt="Dr. Chioma Nwosu" loading="lazy">
+        <div class="card-body">
+          <h2>Dr. Chioma Nwosu</h2>
+          <p>Gynecologist — 8 Wellness St, Port Harcourt</p>
+          <p>Providing compassionate care for women’s health.</p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+      </article>
+
+      <!-- Repeat for 8 cards total, populated via JSON -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dr. HealthChamber</p>
+  </footer>
+
+  <script src="scripts/discover.js" type="module"></script>
+</body>
+</html>
