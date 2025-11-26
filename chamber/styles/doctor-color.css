@@ -1,0 +1,14 @@
+/* Color variables extracted from doctor.css for consistent theming */
+:root {
+  --color-accent: #004aad;
+  --color-accent-light: #e0ecff;
+  --color-footer-bg: #002b64;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: #9cc8ff;
+    --color-accent-light: #003366;
+    --color-footer-bg: #001224;
+  }
+}

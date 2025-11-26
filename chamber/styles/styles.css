@@ -249,11 +249,22 @@ footer section {
   }
 }
 
+/* Screen reader only */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
 /* ========== ERROR MESSAGE ========== */
 [role="alert"] {
   font-weight: 600;
   color: var(--color-error);
 }
+
+/* Error alert styles */
+.alert-error { color: var(--color-error); text-align: center; font-weight: 600; }
 
 /* ========== DARK MODE ========== */
 @media (prefers-color-scheme: dark) {

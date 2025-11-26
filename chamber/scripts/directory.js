@@ -30,7 +30,7 @@ async function loadMembers() {
     console.error("Error loading members:", error);
     const cardsContainer = document.getElementById("cards");
     if (cardsContainer) {
-      cardsContainer.innerHTML = `<p role="alert" style="color: #b00020; text-align: center;">Failed to load member directory. Please try again later.</p>`;
+      cardsContainer.innerHTML = `<p role="alert" class="alert-error">Failed to load member directory. Please try again later.</p>`;
     }
   }
 }
