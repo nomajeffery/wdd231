@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>W05 Project: Site Plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff7b00;   /* headings, accents */
+      --secondary: #004466; /* backgrounds, footer */
+      --light: #ffffff;
+      --dark: #111111;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background: var(--secondary);
+      color: var(--light);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 1.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+    }
+
+    .wireframes {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .wireframe-box {
+      flex: 1;
+      min-width: 250px;
+      border: 2px dashed var(--primary);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>W05 Project: Site Plan</h1>
+  </header>
+
+  <main>
+    <section id="site-name">
+      <h2>Site Name</h2>
+      <p><strong>NomaShop</strong> — This name was selected because it represents a modern, accessible online shopping platform offering phones, electronics, fashion, and more. It is short, memorable, and relevant to the project theme.</p>
+      <p><em>Optional domain availability:</em> nomashop.com</p>
+    </section>
+
+    <section id="site-purpose">
+      <h2>Site Purpose</h2>
+      <p>The purpose of NomaShop is to provide a hub for online shopping where users can browse products, compare prices, and purchase items conveniently. The site will feature categories such as phones, electronics, fashion, and home appliances, along with a secure checkout process.</p>
+    </section>
+
+    <section id="scenarios">
+      <h2>Scenarios</h2>
+      <ul>
+        <li>Which smartphones are currently trending and available at affordable prices?</li>
+        <li>How can I quickly access my shopping cart and proceed to checkout?</li>
+      </ul>
+    </section>
+
+    <section id="color-scheme">
+      <h2>Color Scheme</h2>
+      <p><strong>Primary Color:</strong> Orange (#ff7b00) — used for headings, buttons, and highlights.</p>
+      <p><strong>Secondary Color:</strong> Deep Blue (#004466) — used for header, footer, and background accents.</p>
+      <p>This document itself uses these colors for headings and layout to demonstrate the scheme.</p>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+      <p><strong>Roboto:</strong> used for body text, paragraphs, and lists for readability.</p>
+      <p><strong>Playfair Display:</strong> used for headings to provide a strong, elegant contrast.</p>
+    </section>
+
+    <section id="wireframe">
+      <h2>Wireframe</h2>
+      <div class="wireframes">
+        <div class="wireframe-box">
+          <h3>Mobile View</h3>
+          <p>[Logo]</p>
+          <p>[Hamburger Menu]</p>
+          <p>[Banner Image]</p>
+          <p>[Product Grid]</p>
+          <p>[Footer]</p>
+        </div>
+        <div class="wireframe-box">
+          <h3>Desktop/Tablet View</h3>
+          <p>[Logo + Navigation]</p>
+          <p>[Banner with Search]</p>
+          <p>[Product Grid with Sidebar]</p>
+          <p>[Footer with Links]</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Site Plan Document — W05 Project</p>
+  </footer>
+</body>
+</html>
