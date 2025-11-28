@@ -38,7 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         lastFocusedTrigger = trigger || document.activeElement;
-        if (lastFocusedTrigger) lastFocusedTrigger.setAttribute('aria-expanded', 'true');
+        // Set aria-expanded on the learn-more button if available (preferred) or on the trigger if it's interactive
+        try {
+            let btn = null;
+            if (lastFocusedTrigger && lastFocusedTrigger.tagName === 'BUTTON') btn = lastFocusedTrigger;
+            else if (lastFocusedTrigger && lastFocusedTrigger.querySelector) btn = lastFocusedTrigger.querySelector('.learn-more');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+            else if (lastFocusedTrigger) lastFocusedTrigger.setAttribute('aria-expanded', 'true');
+        } catch (err) { /* ignore */ }
         // focus on the first focusable element in modal
         const focusable = modal.querySelector('button, [href], input, textarea, [tabindex]:not([tabindex="-1"])');
         if (focusable) focusable.focus();
@@ -50,7 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.setAttribute('aria-hidden', 'true');
         if (lastFocusedTrigger) {
             lastFocusedTrigger.focus();
-            lastFocusedTrigger.setAttribute('aria-expanded', 'false');
+            try {
+                let btn = null;
+                if (lastFocusedTrigger && lastFocusedTrigger.tagName === 'BUTTON') btn = lastFocusedTrigger;
+                else if (lastFocusedTrigger && lastFocusedTrigger.querySelector) btn = lastFocusedTrigger.querySelector('.learn-more');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                else lastFocusedTrigger.setAttribute('aria-expanded', 'false');
+            } catch (err) { /* ignore */ }
         }
         lastFocusedTrigger = null;
     };
@@ -61,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const modal = document.getElementById(id);
             openModal(modal, e.currentTarget);
         });
-        // also support keyboard activation (Enter / Space)
+        //  support keyboard activation (Enter / Space)
         card.setAttribute('tabindex', '0');
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -78,8 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
     learnBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const card = btn.closest('.card');
-            if (card) card.click();
+            const id = card ? card.getAttribute('data-modal') : btn.getAttribute('aria-controls');
+            const modal = document.getElementById(id);
+            openModal(modal, btn);
         });
     });
 

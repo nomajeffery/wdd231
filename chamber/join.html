@@ -36,7 +36,7 @@
 <header>
     <div class="nav">
         <div class="logo">
-            <img src="images/logo.webp" alt="HealthChamber Logo" />
+            <img src="images/logo.webp" alt="HealthChamber Logo">
             <span>Dr. HealthChamber</span>
         </div>
 
@@ -44,7 +44,7 @@
 
         <nav id="main-nav" class="main-nav" aria-label="Primary Navigation">
             <ul class="list nav-links">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="join.html" class="active" aria-current="page">Join</a></li>
                 <li><a href="directory.html">Directory</a></li>
             </ul>
@@ -54,7 +54,7 @@
     </div>
 </header>
 
-<main class="container" role="main">
+<main class="container">
     <form id="join-form" action="thankyou.html" method="get">
         <h1>Join the Chamber</h1>
         <label for="firstName">
@@ -95,10 +95,10 @@
     </form>
 
     <div class="membership-cards">
-        <div class="card" data-modal="modal-np" role="button" aria-controls="modal-np" aria-expanded="false" tabindex="0">NP Membership <button class="learn-more" type="button" aria-controls="modal-np">Learn More</button></div>
-        <div class="card" data-modal="modal-bronze" role="button" aria-controls="modal-bronze" aria-expanded="false" tabindex="0">Bronze Membership <button class="learn-more" type="button" aria-controls="modal-bronze">Learn More</button></div>
-        <div class="card" data-modal="modal-silver" role="button" aria-controls="modal-silver" aria-expanded="false" tabindex="0">Silver Membership <button class="learn-more" type="button" aria-controls="modal-silver">Learn More</button></div>
-        <div class="card" data-modal="modal-gold" role="button" aria-controls="modal-gold" aria-expanded="false" tabindex="0">Gold Membership <button class="learn-more" type="button" aria-controls="modal-gold">Learn More</button></div>
+        <div class="card" data-modal="modal-np" role="group" aria-controls="modal-np" tabindex="0" aria-label="Open NP membership details">NP Membership <button class="learn-more" type="button" aria-controls="modal-np" aria-expanded="false" aria-haspopup="dialog">Learn More</button></div>
+        <div class="card" data-modal="modal-bronze" role="group" aria-controls="modal-bronze" tabindex="0" aria-label="Open Bronze membership details">Bronze Membership <button class="learn-more" type="button" aria-controls="modal-bronze" aria-expanded="false" aria-haspopup="dialog">Learn More</button></div>
+        <div class="card" data-modal="modal-silver" role="group" aria-controls="modal-silver" tabindex="0" aria-label="Open Silver membership details">Silver Membership <button class="learn-more" type="button" aria-controls="modal-silver" aria-expanded="false" aria-haspopup="dialog">Learn More</button></div>
+        <div class="card" data-modal="modal-gold" role="group" aria-controls="modal-gold" tabindex="0" aria-label="Open Gold membership details">Gold Membership <button class="learn-more" type="button" aria-controls="modal-gold" aria-expanded="false" aria-haspopup="dialog">Learn More</button></div>
     </div>
 </main>
 
