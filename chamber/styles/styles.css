@@ -10,6 +10,12 @@
   --focus-outline: 3px solid #ffcc00;
   --transition-fast: 0.2s ease-in-out;
   --font-body: 'Poppins', sans-serif;
+  /* Additional site vars */
+  --color-cta: rgb(0,51,102);
+  --card-bg: #ffffff;
+  --card-text: #111111;
+  --modal-bg: var(--color-accent);
+  --modal-text: #ffffff;
 }
 
 /* ========== GENERAL ========== */

@@ -1,27 +1,6 @@
-/* General Page Styling */
-body {
-    margin: 0;
-    font-family: var(--font-body);
-    background: var(--color-bg);
-    color: var(--color-text);
-    transition: background .3s, color .3s;
-}
+/* Page-specific overrides kept minimal; global body styles live in styles.css */
 
-body.dark {
-    background: var(--color-bg);
-    color: var(--color-text);
-}
-
-/* Header & Navigation */
-header {
-    background: var(--color-header-bg);
-    color: #fff;
-    padding: 1rem;
-}
-
-header h1 {
-    margin: 0;
-}
+/* Header & Navigation styling is defined in styles.css; avoid repeated declarations here. */
 
 /* Navigation */
 #main-nav {
@@ -44,48 +23,17 @@ header h1 {
     font-weight: bold;
 }
 
-/* Menu button */
-#menu-btn {
-    cursor: pointer;
-    background: transparent;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    display: none; /* hidden on desktop */
-    position: relative;
-    z-index: 9999;
-}
+/* Menu button styling is handled in styles.css; additional join overrides can be added here if needed. */
 
 /* Dark Mode Button */
-#dark-toggle {
-    background: transparent;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
+/* Dark mode toggle styling is handled by the global CSS. */
 
 body.dark #dark-toggle {
     background: var(--color-bg);
     color: var(--color-text);
 }
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    #menu-btn { display: block; }
-    #main-nav ul {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        background: var(--color-header-bg);
-        padding: 1rem;
-        border-radius: 6px;
-    }
-    #main-nav.open ul { display: flex; }
-}
+/* Responsive navigation handled globally; keep join-specific layout not duplicated. */
 
 /* Container */
 .container {
@@ -94,7 +42,7 @@ body.dark #dark-toggle {
 }
 
 /* Ensure logo image is responsive and small */
-.logo img { width: 60px; height: 60px; border-radius: 50%; margin-right: 0.6rem; }
+.nav .logo img { width: 60px; height: 60px; border-radius: 50%; margin-right: 0.6rem; }
 .logo span { font-weight: 600; margin-left: 0.4rem; }
 
 /* Mobile-friendly main-nav open behavior (integrates with menu.js)
@@ -150,7 +98,7 @@ input, select, textarea {
 }
 
 /* Entrance animation (not hover-activated) for cards */
-.card {
+.membership-cards .card {
     background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
@@ -161,12 +109,12 @@ input, select, textarea {
     animation-delay: 0.2s;
 }
 
-.card:hover { transform: translateY(-5px); }
+.membership-cards .card:hover { transform: translateY(-5px); }
 
-.card a { color: var(--color-accent); text-decoration: underline; }
-.card { color: var(--card-text); }
+.membership-cards .card a { color: var(--color-accent); text-decoration: underline; }
+.membership-cards .card { color: var(--card-text); }
 
-.card:focus { outline: var(--focus-outline); outline-offset: 3px; }
+.membership-cards .card:focus { outline: var(--focus-outline); outline-offset: 3px; }
 
 /* Modals */
 .modal {
@@ -223,11 +171,4 @@ body.dark .modal-content {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    background: var(--color-footer-bg);
-    color: #fff;
-}
+/* Footer is global - use styles.css instead */
