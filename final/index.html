@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NomaShop — Online Shopping</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NomaShop — phones, electronics, fashion, appliances & more." />
+  <link rel="icon" href="images/favicon.ico">
+  <!-- Font Awesome CDN removed per user request - using unicode fallback icons instead -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="navbar-brand">NomaShop</a>
+
+        <button id="nav-toggler" type="button" class="navbar-toggler" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon icon-nav" aria-hidden="true">☰</span>
+        </button>
+
+        <div id="main-nav" class="navbar-collapse" aria-hidden="true">
+          <ul id="category-nav" role="menubar" aria-label="Categories">
+            <li role="none"><a role="menuitem" href="#" data-category="All" data-active="true">All</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Phones">Phones</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Electronics">Electronics</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Fashion">Fashion</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Home Appliances">Home</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Audio">Audio</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Beauty">Beauty</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Computers">Computers</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Kitchen">Kitchen</a></li>
+            <li role="none"><a role="menuitem" href="#" data-category="Accessories">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="cart">
+          <button id="cart-btn" type="button" aria-haspopup="true" aria-controls="cart-container" aria-expanded="false">
+            <span class="icon icon-cart" aria-hidden="true">🛒</span>
+            <span id="cart-count-info" aria-live="polite">0</span>
+          </button>
+
+          <div id="cart-container" class="cart-container" hidden>
+            <div id="cart-list" class="cart-list" aria-live="polite">
+              <!-- injected -->
+            </div>
+            <div class="cart-total">
+              <h3>Total: $<span id="cart-total-value">0.00</span></h3>
+              <p><a href="checkout.html" id="checkout-link" class="btn">Checkout</a></p>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="banner">
+        <div class="banner-content">
+          <h1>Everything You Need — Delivered Fast</h1>
+          <p class="text">Phones, electronics, fashion, appliances & more.</p>
+
+          <!-- Search & Controls -->
+          <div class="search-controls">
+            <label for="search" class="visually-hidden">Search products</label>
+              <input id="search" type="search" class="search-input" placeholder="Search products (e.g. 'iPhone', 'speaker')">
+              <button id="search-btn" type="button" class="btn" aria-label="Search products">Search</button>
+            <select id="sort-select" class="sort-select" aria-label="Sort products">
+              <option value="default">Sort: Featured</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="name-asc">Name: A → Z</option>
+            </select>
+          </div>
+
+          <div class="btns">
+            <button class="btn" id="view-all" type="button">View All</button>
+            <a href="checkout.html" class="btn">Go to Checkout</a>
+          </div>
+        </div>
+
+        <div class="banner-img">
+          <img src="images/banner-img.png" alt="shopping banner" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="products">
+      <div class="container">
+        <h2>
+          Our Products 
+          <small id="product-count" class="product-count">(0)</small>
+        </h2>
+
+        <div id="product-list" class="product-list" aria-live="polite"></div>
+
+        <div id="pagination" class="pagination"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- product modal -->
+  <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+    <div class="modal-content" role="document">
+      <button id="modal-close" type="button" class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-banner">
+      <div class="container">
+        <h2>Unlimited Collection</h2>
+        <p class="text">Fast shipping · Secure payment · Great value</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook" class="social-link"><span class="icon icon-fb" aria-hidden="true">f</span></a>
+        <a href="#" aria-label="Twitter" class="social-link"><span class="icon icon-tw" aria-hidden="true">t</span></a>
+        <a href="#" aria-label="Instagram" class="social-link"><span class="icon icon-ig" aria-hidden="true">📷</span></a>
+      </div>
+      <p>
+        <a href="about.html">About</a> •
+        <a href="contact.html">Contact</a> •
+        <a href="terms.html">Terms</a> •
+        <a href="privacy.html">Privacy</a> •
+        <a href="attributions.html">Attributions</a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="script/app.js"></script>
+  <script type="module" src="script/search.js"></script>
+</body>
+</html>
