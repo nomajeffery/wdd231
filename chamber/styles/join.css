@@ -151,7 +151,7 @@ input, select, textarea {
 
 /* Entrance animation (not hover-activated) for cards */
 .card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -164,6 +164,7 @@ input, select, textarea {
 .card:hover { transform: translateY(-5px); }
 
 .card a { color: var(--color-accent); text-decoration: underline; }
+.card { color: var(--card-text); }
 
 .card:focus { outline: var(--focus-outline); outline-offset: 3px; }
 
@@ -184,7 +185,7 @@ input, select, textarea {
 .modal.is-open { display: flex; }
 
 .modal-content {
-    background: var(--color-accent);
+    background: var(--modal-bg);
     padding: 2rem;
     width: min(500px, 90%);
     border-radius: 10px;
@@ -192,15 +193,15 @@ input, select, textarea {
     animation: fadeIn .3s ease;
 
     
-    color: #fff;
+    color: var(--modal-text);
 }
 
 /* Ensure all text inside modal content uses white for adequate contrast */
-.modal-content, .modal-content * { color: #fff; }
+.modal-content, .modal-content * { color: var(--modal-text); }
 
 body.dark .modal-content {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--modal-bg);
+    color: var(--modal-text);
 }
 
 .close {

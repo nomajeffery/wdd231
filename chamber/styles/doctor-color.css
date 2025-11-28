@@ -9,6 +9,10 @@
   --color-footer-bg: #002b64;
   --color-header-bg: #001224;
   --focus-outline: 3px solid #ffcc00;
+  --card-bg: #ffffff;
+  --card-text: #111111;
+  --modal-bg: var(--color-accent);
+  --modal-text: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,5 +25,9 @@
     --color-border: #333333;
     --color-footer-bg: #001224;
     --color-header-bg: #001224;
+    --card-bg: #121212;
+    --card-text: #ffffff;
+    --modal-bg: #001224;
+    --modal-text: #ffffff;
   }
 }
