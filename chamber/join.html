@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="styles/join.css">
 
     <!-- JS -->
-    <script defer src="scripts/menu.js"></script>
+    <script defer src="scripts/nav.js"></script>
     <script defer src="scripts/join.js"></script>
 </head>
 <body>
@@ -40,7 +40,7 @@
             <span>Dr. HealthChamber</span>
         </div>
 
-        <button id="menu-btn" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">☰</button>
 
         <nav id="main-nav" class="main-nav" aria-label="Primary Navigation">
             <ul class="list nav-links">
@@ -50,7 +50,7 @@
             </ul>
         </nav>
 
-        <button id="dark-toggle" title="Toggle dark mode">🌙</button>
+        <button id="dark-toggle" title="Toggle dark mode" aria-pressed="false">🌙</button>
     </div>
 </header>
 

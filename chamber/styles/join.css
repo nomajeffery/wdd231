@@ -126,7 +126,7 @@ input, select, textarea {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    color: #fff;
+    color: var(--modal-text);
 }
 
 /* show modal via class toggle (no inline style) */
@@ -144,7 +144,7 @@ input, select, textarea {
     color: var(--modal-text);
 }
 
-/* Ensure all text inside modal content uses white for adequate contrast */
+/* Ensure all text inside modal content uses the modal text variable for adequate contrast */
 .modal-content, .modal-content * { color: var(--modal-text); }
 
 body.dark .modal-content {

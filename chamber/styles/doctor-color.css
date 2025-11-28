@@ -1,1 +1,23 @@
-/* Color overrides for doctor theme are moved into `styles.css` (global) to minimize duplication. */
+/* Doctor theme color overrides (page-specific). These override global variables in `styles.css`.
+	 Keep this file to allow doctors' pages to customize visual styles without touching globals. */
+
+/* Light mode */
+:root {
+	/* Card: white background with dark text */
+	--card-bg: #ffffff;
+	--card-text: #111111;
+
+	/* Modal content: brand accent background with white text */
+	--modal-bg: #004aad; /* doctor brand blue */
+	--modal-text: #ffffff;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--card-bg: #121212;
+		--card-text: #ffffff;
+		--modal-bg: #053463; /* slightly darker brand blue */
+		--modal-text: #ffffff;
+	}
+}

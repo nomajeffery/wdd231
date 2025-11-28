@@ -1,3 +1,5 @@
+// DEPRECATED: Replaced by `nav.js` in the project.
+// Keep this file as a backup until deletion. Use `nav.js` for nav behaviors.
 // Menu toggle (robust version)
 document.addEventListener('DOMContentLoaded', () => {
     let menuBtn = document.getElementById('menu-btn');
