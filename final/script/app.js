@@ -119,7 +119,7 @@ function renderProductCard(item) {
         <p class="product-category">${escapeHtml(item.category)}</p>
         <p class="product-desc">${escapeHtml(item.description)}</p>
         <p class="product-price">$${fmt(item.price)}</p>
-        <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:0.5rem;">
+        <div class="product-actions">
           <button type="button" class="btn view-btn" data-action="view" data-id="${item.id}" aria-label="View ${escapeHtml(item.name)}">View</button>
           <button type="button" class="btn add-btn" data-action="add" data-id="${item.id}" aria-label="Add ${escapeHtml(item.name)} to cart">Add</button>
         </div>
@@ -168,12 +168,12 @@ function openModal(id) {
         <p><strong>Category:</strong> ${escapeHtml(product.category)}</p>
         <p><strong>Price:</strong> $${fmt(product.price)}</p>
         <p>${escapeHtml(product.description)}</p>
-        <form id="buy-form" action="form-result.html" method="get" style="margin-top:1rem;">
+        <form id="buy-form" action="form-result.html" method="get" class="buy-form">
           <input type="hidden" name="id" value="${product.id}">
           <label for="qty">Qty:</label>
-          <input id="qty" name="qty" type="number" min="1" value="1" style="width:72px;margin-left:6px;">
-          <button class="btn" type="submit" style="margin-left:8px;">Buy now</button>
-          <button class="btn" type="button" id="modal-add" data-id="${product.id}" style="margin-left:8px;">Add to cart</button>
+          <input id="qty" name="qty" type="number" min="1" value="1" class="qty-input">
+          <button class="btn" type="submit">Buy now</button>
+          <button class="btn" type="button" id="modal-add" data-id="${product.id}">Add to cart</button>
         </form>
       </div>
     </div>

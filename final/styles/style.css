@@ -206,6 +206,14 @@ header { position: relative; z-index: 100; }
   margin-left: 8px;
 }
 
+/* Product card actions (replaces inline styles from templates) */
+.product-actions { display:flex; gap:0.5rem; justify-content:center; margin-top:0.5rem; }
+
+/* Modal buy form layout */
+.buy-form { margin-top:1rem; display:flex; align-items:center; gap:0.6rem; }
+.buy-form .qty-input { width:72px; }
+.buy-form .btn { margin-left: 8px; }
+
 /* Pagination (was inline style) */
 .pagination {
   text-align: center;
