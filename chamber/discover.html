@@ -11,14 +11,21 @@
     <meta property="og:image" content="https://nomajeffery.github.io/wdd231/chamber/images/city.webp">
     <meta property="og:url" content="https://nomajeffery.github.io/wdd231/chamber/join.html">
     <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
   <link rel="stylesheet" href="styles/discover.css">
 </head>
 <body>
   <header>
-    <nav class="navbar">
+    <nav id="main-nav" class="navbar" aria-label="Primary Navigation">
       <a href="index.html" class="navbar-brand">Dr. HealthChamber</a>
-      <button class="navbar-toggler" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
+      <button id="menu-btn" type="button" class="navbar-toggler" aria-controls="main-nav" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="list nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="directory.html">Directory</a></li>
         <li><a href="join.html">Join</a></li>
@@ -37,7 +44,7 @@
     <section class="cards-grid">
       <!-- Example card -->
       <article class="card">
-        <img src="images/doctor1.webp" alt="Dr. Chioma Nwosu" loading="lazy">
+        <img src="images/main1.webp" alt="Dr. Chioma Nwosu" loading="lazy">
         <div class="card-body">
           <h2>Dr. Chioma Nwosu</h2>
           <p>Gynecologist — 8 Wellness St, Port Harcourt</p>
@@ -46,7 +53,7 @@
         </div>
       </article>
 
-      <!-- Repeat for 8 cards total, populated via JSON -->
+      <!-- populated via JSON -->
     </section>
   </main>
 
@@ -54,6 +61,7 @@
     <p>&copy; 2025 Dr. HealthChamber</p>
   </footer>
 
+  <script defer src="scripts/nav.js"></script>
   <script src="scripts/discover.js" type="module"></script>
 </body>
 </html>

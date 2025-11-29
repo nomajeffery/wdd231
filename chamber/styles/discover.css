@@ -85,4 +85,9 @@ header {
       "card"
       "card";
   }
+  /* Mobile nav: hide links until toggled open */
+  .nav-links { display: none; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  .list.open { display: flex; }
+  #main-nav.open .list { display: flex; }
+  .navbar-toggler { display: block; }
 }

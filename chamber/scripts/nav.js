@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const list = mainNav.querySelector('.list');
       if (list) list.classList.add('open');
       menuBtn.classList.add('open');
+      // If mainNav hidden attribute is used to hide nav on some pages, clear it
+      if (typeof mainNav.hidden !== 'undefined') mainNav.hidden = false;
       document.body.classList.add('nav-open');
     };
     const close = () => {
@@ -29,11 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const list = mainNav.querySelector('.list');
       if (list) list.classList.remove('open');
       menuBtn.classList.remove('open');
+      if (typeof mainNav.hidden !== 'undefined') mainNav.hidden = true;
       document.body.classList.remove('nav-open');
     };
 
-    const toggle = () => (menuBtn.getAttribute('aria-expanded') === 'true' ? close() : open());
+    const toggle = () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      console.debug('nav.js toggle, expanded:', expanded);
+      return expanded ? close() : open();
+    };
 
+    // Pointer event support covers touch and mouse events consistently
+    menuBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      // ensure button doesn't act as a submit button
+      if (menuBtn.type !== 'button') menuBtn.type = 'button';
+      toggle();
+    });
+
+    // click fallback (some environments rely on click)
     menuBtn.addEventListener('click', (e) => {
       e.preventDefault();
       toggle();
