@@ -12,15 +12,15 @@
 <body>
 
   <header>
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="navbar-brand">NomaShop</a>
+    <div class="site-container">
+      <nav class="site-navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="site-brand">NomaShop</a>
 
-        <button id="nav-toggler" type="button" class="navbar-toggler" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button id="nav-toggler" type="button" class="site-toggler" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon icon-nav" aria-hidden="true">☰</span>
         </button>
 
-        <div id="main-nav" class="navbar-collapse" aria-hidden="true">
+        <div id="main-nav" class="site-collapse" aria-hidden="true">
           <ul id="category-nav" role="menubar" aria-label="Categories">
             <li role="none"><a role="menuitem" href="#" data-category="All" data-active="true">All</a></li>
             <li role="none"><a role="menuitem" href="#" data-category="Phones">Phones</a></li>
@@ -47,7 +47,7 @@
             </div>
             <div class="cart-total">
               <h3>Total: $<span id="cart-total-value">0.00</span></h3>
-              <p><a href="checkout.html" id="checkout-link" class="btn">Checkout</a></p>
+              <p><a href="checkout.html" id="checkout-link" class="site-btn">Checkout</a></p>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
           <div class="search-controls">
             <label for="search" class="visually-hidden">Search products</label>
               <input id="search" type="search" class="search-input" placeholder="Search products (e.g. 'iPhone', 'speaker')">
-              <button id="search-btn" type="button" class="btn" aria-label="Search products">Search</button>
+              <button id="search-btn" type="button" class="site-btn" aria-label="Search products">Search</button>
             <select id="sort-select" class="sort-select" aria-label="Sort products">
               <option value="default">Sort: Featured</option>
               <option value="price-asc">Price: Low → High</option>
@@ -71,9 +71,9 @@
             </select>
           </div>
 
-          <div class="btns">
-            <button class="btn" id="view-all" type="button">View All</button>
-            <a href="checkout.html" class="btn">Go to Checkout</a>
+          <div class="site-btns">
+            <button class="site-btn" id="view-all" type="button">View All</button>
+            <a href="checkout.html" class="site-btn">Go to Checkout</a>
           </div>
         </div>
 
@@ -86,7 +86,7 @@
 
   <main>
     <section class="products">
-      <div class="container">
+      <div class="site-container">
         <h2>
           Our Products 
           <small id="product-count" class="product-count">(0)</small>
@@ -110,12 +110,12 @@
 
   <footer>
     <div class="footer-banner">
-      <div class="container">
+      <div class="site-container">
         <h2>Unlimited Collection</h2>
         <p class="text">Fast shipping · Secure payment · Great value</p>
       </div>
     </div>
-    <div class="container">
+    <div class="site-container">
       <div class="social-icons">
         <a href="#" aria-label="Facebook" class="social-link"><span class="icon icon-fb" aria-hidden="true">f</span></a>
         <a href="#" aria-label="Twitter" class="social-link"><span class="icon icon-tw" aria-hidden="true">t</span></a>

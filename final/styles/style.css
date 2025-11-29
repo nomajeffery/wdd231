@@ -25,15 +25,15 @@ body {
 
 /* utility: visually-hidden for accessible labels */
 .visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0 0 0 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 img {
@@ -41,7 +41,7 @@ img {
   display: block;
 }
 
-.container {
+.site-container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
@@ -70,37 +70,37 @@ header {
 /* ensure header/nav stays on top to avoid blocking interactions */
 header { position: relative; z-index: 100; }
 
-.navbar {
+.site-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-brand {
+.site-brand {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--primary);
   text-decoration: none;
 }
 
-.navbar ul {
+.site-navbar ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 
-.navbar ul a {
+.site-navbar ul a {
   text-decoration: none;
   color: var(--dark);
   font-size: 1rem;
 }
 
-.navbar ul a:hover {
+.site-navbar ul a:hover {
   color: var(--primary);
 }
 
 /* Hamburger */
-.navbar-toggler {
+.site-toggler {
   display: inline-block;
   font-size: 1.5rem;
   background: none;
@@ -172,7 +172,7 @@ header { position: relative; z-index: 100; }
 }
 
 /* Buttons */
-.btn {
+.site-btn {
   background: var(--primary);
   color: var(--light);
   padding: 0.7rem 1.2rem;
@@ -182,9 +182,12 @@ header { position: relative; z-index: 100; }
   margin-right: 0.5rem;
 }
 
-.btn:hover {
+.site-btn:hover {
   background: #e86c00;
 }
+
+/* site btn wrapper */
+.site-btns { display:flex; gap:0.6rem; }
 
 /* ---------------------------------------------------------
    PRODUCT GRID
@@ -212,7 +215,7 @@ header { position: relative; z-index: 100; }
 /* Modal buy form layout */
 .buy-form { margin-top:1rem; display:flex; align-items:center; gap:0.6rem; }
 .buy-form .qty-input { width:72px; }
-.buy-form .btn { margin-left: 8px; }
+.buy-form .site-btn { margin-left: 8px; }
 
 /* Pagination (was inline style) */
 .pagination {
@@ -410,7 +413,7 @@ footer {
 .contact-card label { font-weight: 700; display: block; margin-bottom: 0.4rem; }
 .contact-card input, .contact-card textarea { width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid #ddd; }
 .contact-card .form-actions { display:flex; gap:0.6rem; align-items:center; margin-top:0.6rem; }
-.btn-muted { background: #f5f5f5; color: var(--dark); border: 1px solid #ddd; }
+.site-btn-muted { background: #f5f5f5; color: var(--dark); border: 1px solid #ddd; }
 .contact-feedback { margin-top: 0.6rem; padding: 0.6rem; border-radius: 6px; }
 .contact-feedback.success { background: #e6ffed; color: #067a24; border: 1px solid #c8efcf; }
 .contact-feedback.error { background: #fff0f0; color: #a00; border: 1px solid #f2c6c6; }
@@ -420,7 +423,7 @@ footer {
 --------------------------------------------------------- */
 @media (max-width: 768px) {
 
-  .navbar-collapse ul {
+  .site-collapse ul {
     display: none;
     flex-direction: column;
     background: var(--light);
@@ -433,13 +436,13 @@ footer {
     border: 1px solid var(--border);
   }
 
-  .navbar-collapse.open ul {
+  .site-collapse.open ul {
     display: flex;
   }
 
-  .navbar-collapse[hidden] { display: none; }
+  .site-collapse[hidden] { display: none; }
 
-  .navbar-toggler {
+  .site-toggler {
     display: block;
     color: var(--dark);
   }
@@ -460,7 +463,7 @@ footer {
 
 /* also show hamburger slightly earlier on medium screens */
 @media (max-width: 1024px) {
-  .navbar-toggler { display: block; }
+  .site-toggler { display: block; }
 }
 
 /* search button in header */
@@ -468,7 +471,7 @@ footer {
 .search-controls #search-btn { padding: 0.6rem; }
 
 /* Hide overlays when hidden attribute is present (strong selector to override default library/UA styles) */
-.modal[hidden], #cart-container[hidden], .navbar-collapse[hidden] { display: none !important; }
+.modal[hidden], #cart-container[hidden], .site-collapse[hidden] { display: none; }
 .modal { z-index: 200; }
 
-.navbar-toggler .nav-icon { display: inline-block; margin-left: 6px; font-size: 1.24rem; }
+.site-toggler .nav-icon { display: inline-block; margin-left: 6px; font-size: 1.24rem; }

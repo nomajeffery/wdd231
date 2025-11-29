@@ -112,7 +112,7 @@ function renderProductCard(item) {
     <article class="product-card" data-id="${item.id}" aria-labelledby="pname-${item.id}">
       <div class="product-img">
         <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" width="400" height="300" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image';">
-        <button type="button" class="add-to-cart-btn btn" data-action="add" data-id="${item.id}" aria-label="Add ${escapeHtml(item.name)} to cart">Add to Cart</button>
+        <button type="button" class="add-to-cart-btn site-btn" data-action="add" data-id="${item.id}" aria-label="Add ${escapeHtml(item.name)} to cart">Add to Cart</button>
       </div>
       <div class="product-content">
         <h3 id="pname-${item.id}" class="product-name">${escapeHtml(item.name)}</h3>
@@ -120,8 +120,8 @@ function renderProductCard(item) {
         <p class="product-desc">${escapeHtml(item.description)}</p>
         <p class="product-price">$${fmt(item.price)}</p>
         <div class="product-actions">
-          <button type="button" class="btn view-btn" data-action="view" data-id="${item.id}" aria-label="View ${escapeHtml(item.name)}">View</button>
-          <button type="button" class="btn add-btn" data-action="add" data-id="${item.id}" aria-label="Add ${escapeHtml(item.name)} to cart">Add</button>
+          <button type="button" class="site-btn view-btn" data-action="view" data-id="${item.id}" aria-label="View ${escapeHtml(item.name)}">View</button>
+          <button type="button" class="site-btn add-btn" data-action="add" data-id="${item.id}" aria-label="Add ${escapeHtml(item.name)} to cart">Add</button>
         </div>
       </div>
     </article>
@@ -150,8 +150,8 @@ function renderPagination() {
   }
   let html = '';
   for (let i = 1; i <= total; i++) {
-    if (i === currentPage) html += `<button type="button" class="btn page-btn" data-page="${i}" aria-current="page">${i}</button>`;
-    else html += `<button type="button" class="btn page-btn" data-page="${i}">${i}</button>`;
+    if (i === currentPage) html += `<button type="button" class="site-btn page-btn" data-page="${i}" aria-current="page">${i}</button>`;
+    else html += `<button type="button" class="site-btn page-btn" data-page="${i}">${i}</button>`;
   }
   q.pagination.innerHTML = html;
 }
@@ -172,8 +172,8 @@ function openModal(id) {
           <input type="hidden" name="id" value="${product.id}">
           <label for="qty">Qty:</label>
           <input id="qty" name="qty" type="number" min="1" value="1" class="qty-input">
-          <button class="btn" type="submit">Buy now</button>
-          <button class="btn" type="button" id="modal-add" data-id="${product.id}">Add to cart</button>
+          <button class="site-btn" type="submit">Buy now</button>
+          <button class="site-btn" type="button" id="modal-add" data-id="${product.id}">Add to cart</button>
         </form>
       </div>
     </div>
@@ -232,7 +232,7 @@ function updateCartUI() {
             <p>Price: $${fmt(p.price)}</p>
             <p>Subtotal: $${fmt(subtotal)}</p>
             <div class="cart-item-actions">
-              <button type="button" class="btn remove-btn" data-action="remove" aria-label="Remove ${escapeHtml(p.name||'')}">Remove</button>
+              <button type="button" class="site-btn remove-btn" data-action="remove" aria-label="Remove ${escapeHtml(p.name||'')}">Remove</button>
             </div>
           </div>
         </div>
