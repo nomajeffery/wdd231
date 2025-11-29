@@ -16,6 +16,8 @@ header {
   background: var(--secondary);
   color: var(--light);
   padding: 1rem;
+  position: relative;
+  z-index: 1100;
 }
 
 .site-navbar {
@@ -42,8 +44,11 @@ header {
 
 .cards-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "card card card";
+    "card1 card2 card3"
+    "card4 card5 card6"
+    "card7 card8 card8";
   gap: 1.5rem;
   padding: 2rem;
 }
@@ -60,6 +65,11 @@ header {
   transform: scale(1.03);
 }
 
+/* Named grid area fallbacks for cards */
+.card[style*="grid-area: card1"] { grid-area: card1; }
+.card[style*="grid-area: card2"] { grid-area: card2; }
+.card[style*="grid-area: card3"] { grid-area: card3; }
+
 .card img {
   width: 100%;
   height: 200px;
@@ -70,7 +80,7 @@ header {
   padding: 1rem;
 }
 
-.btn {
+.site-btn {
   display: inline-block;
   background: var(--primary);
   color: var(--light);
@@ -81,13 +91,58 @@ header {
 
 @media (max-width: 768px) {
   .cards-grid {
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "card"
-      "card";
+      "card1"
+      "card2"
+      "card3"
+      "card4"
+      "card5"
+      "card6"
+      "card7"
+      "card8";
   }
-  /* Mobile nav: hide links until toggled open */
+
+/* Tablet / Medium screens: two-column named grid layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+  }
+}
+
+/* Desktop: hover effect for card image only on larger displays */
+@media (min-width: 1025px) {
+  .card img { transition: transform .3s ease; }
+  .card:hover img { transform: scale(1.05); }
+}
+
+/* Explicit mapping from classes to named grid areas */
+.card-area-1 { grid-area: card1; }
+.card-area-2 { grid-area: card2; }
+.card-area-3 { grid-area: card3; }
+.card-area-4 { grid-area: card4; }
+.card-area-5 { grid-area: card5; }
+.card-area-6 { grid-area: card6; }
+.card-area-7 { grid-area: card7; }
+.card-area-8 { grid-area: card8; }
+  /* Mobile nav: hide links until toggled open and show as full-width dropdown/overlay */
   .nav-links { display: none; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  /* Ensure the main-nav wrapper becomes a dropdown beneath the header/brand */
+  #main-nav { position: absolute; left: 0; top: 100%; width: 100%; background: var(--secondary); padding: 0.75rem 1rem; box-shadow: 0 6px 16px rgba(0,0,0,0.12); z-index: 1500; }
+  #main-nav[hidden] { display: none; }
+  #main-nav .nav-links { padding: 0; }
   .list.open { display: flex; }
   #main-nav.open .list { display: flex; }
   .site-toggler { display: block; }
+  /* Make the fallback toggler visually consistent and visible */
+  .site-toggler { background: transparent; border: none; color: var(--light); font-size: 1.8rem; }
+  /* Ensure hamburger is on top and clickable (use absolute to avoid layout overlap) */
+  .site-toggler { position: absolute; right: 1rem; top: 0.7rem; z-index: 2000; pointer-events: auto; }
+  /* Visual debug helper when the script initializes the toggler (removed/overridden in production) */
+  .site-toggler[data-nav-initialized="true"] { box-shadow: 0 0 0 3px rgba(255,255,255,0.08) inset; }
 }

@@ -23,9 +23,18 @@
       "address": "99 Hospital Rd, Ibadan",
       "phone": "(+234) 807-444-3333",
       "website": "https://akpancjjjlinic.com",
-      "image": "images/tunde.webp",
+      "image": "images/photodoc.webp",
       "membership": "bronze",
       "specialty": "Dermatologist"
+    },
+    {
+      "name": "Dr. Oluchi Obi",
+      "address": "33 Sunrise Rd, Benin",
+      "phone": "(+234) 802-333-2222",
+      "website": "https://obimedical.com",
+      "image": "images/post-2.webp",
+      "membership": "silver",
+      "specialty": "Gastroenterologist"
     },
     {
       "name": "Dr. Chioma Nwosu",

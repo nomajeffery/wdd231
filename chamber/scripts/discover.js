@@ -27,13 +27,16 @@ async function loadMembers() {
     }
 
     // Build DOM nodes to avoid inline event attributes and to set image onerror handlers
+    console.debug('discover.js: loaded', members.length, 'members');
     members.forEach(member => {
-        console.debug('discover.js: loaded', members.length, 'members');
       const card = document.createElement('article');
       card.className = 'card';
 
       const img = document.createElement('img');
       img.loading = 'lazy';
+      // Provide intrinsic size attributes to reduce CLS and improve performance
+      img.width = 400;
+      img.height = 200;
       img.alt = member.name || 'Member';
       img.src = member.image || 'images/main1.webp';
       // fallback to placeholder on image error
@@ -50,7 +53,7 @@ async function loadMembers() {
       desc.textContent = member.description || member.specialty || member.phone || '';
       const a = document.createElement('a');
       a.href = member.website || '#';
-      a.className = 'btn';
+      a.className = 'site-btn';
       a.textContent = 'Learn More';
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
@@ -59,6 +62,14 @@ async function loadMembers() {
       if (addr.textContent) body.appendChild(addr);
       if (desc.textContent) body.appendChild(desc);
       body.appendChild(a);
+      // Assign named grid area classes to each card to support W05 named grid areas requirement
+      const idx = grid.children.length + 1; // 1-based index
+      // Add both the card-area class and named grid area to support CSS selectors
+      const areaClass = `card-area-${idx}`;
+      card.classList.add(areaClass);
+      // Map to named grid area that matches discover.css grid-template-areas (card1..card8)
+      const areaName = `card${idx}`;
+      card.style.gridArea = areaName;
       card.appendChild(img);
       card.appendChild(body);
       grid.appendChild(card);

@@ -1,6 +1,7 @@
 /* Page-specific overrides kept minimal; global body styles live in styles.css */
 
 /* Header & Navigation styling is defined in styles.css; avoid repeated declarations here. */
+header { position: relative; z-index: 1100; }
 
 /* Navigation */
 #main-nav {
@@ -45,11 +46,20 @@ body.dark #dark-toggle {
 .nav .logo img { width: 60px; height: 60px; border-radius: 50%; margin-right: 0.6rem; }
 .logo span { font-weight: 600; margin-left: 0.4rem; }
 
+/* Ensure hamburger is on top and clickable (absolute to avoid layout overlap) */
+#menu-btn { position: absolute; right: 1rem; top: 0.7rem; z-index: 2000; background: transparent; border: none; color: var(--color-text); font-size: 1.8rem; pointer-events: auto; }
+
 /* Mobile-friendly main-nav open behavior (integrates with menu.js)
    The #main-nav element can toggle the .open class to show the .list container */
 #main-nav .list { display: flex; gap: 1rem; align-items: center; }
 #main-nav .list a { color: white; }
 #main-nav.open .list { display: flex; flex-direction: column; width: 100%; }
+
+@media (max-width: 768px) {
+    /* Hide nav links by default on mobile; show via toggler (menu-btn) */
+    #main-nav .list { display: none; }
+    #main-nav.open .list { display: flex; }
+}
 
 /* Form Styling */
 form label {

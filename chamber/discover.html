@@ -30,22 +30,24 @@
 </head>
 <body>
   <header>
-    <nav id="main-nav" class="site-navbar" aria-label="Primary Navigation">
+    <nav class="site-navbar" aria-label="Primary Navigation">
       <a href="index.html" class="site-brand">Dr. HealthChamber</a>
       <button id="menu-btn" type="button" class="site-toggler" aria-controls="main-nav" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <ul class="list nav-links">
+      <div id="main-nav" class="site-collapse">
+        <ul class="list nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="directory.html">Directory</a></li>
         <li><a href="join.html">Join</a></li>
         <li><a href="discover.html" class="active">Discover</a></li>
-      </ul>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <main>
     <section class="welcome">
       <h1>Discover Local Health Services</h1>
-      <p id="visit-message"></p>
+      <p id="visit-message" aria-live="polite"></p>
     </section>
 
     <!-- Cards built from JSON -->
@@ -57,7 +59,7 @@
           <h2>Dr. Chioma Nwosu</h2>
           <p>Gynecologist — 8 Wellness St, Port Harcourt</p>
           <p>Providing compassionate care for women’s health.</p>
-          <a href="#" class="btn">Learn More</a>
+          <a href="#" class="site-btn">Learn More</a>
         </div>
       </article>
 

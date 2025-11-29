@@ -4,11 +4,30 @@
 */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menu-btn');
-  const mainNav = document.getElementById('main-nav');
+  // Try multiple selectors for the toggler to support various pages/markup
+  const mainNav = document.getElementById('main-nav') || document.querySelector('nav[aria-label="Primary Navigation"]') || document.querySelector('nav');
+  let menuBtn = document.getElementById('menu-btn') || document.querySelector('button[aria-controls="main-nav"]') || document.querySelector('.site-toggler') || document.querySelector('.navbar-toggler') || document.getElementById('nav-toggler') || document.querySelector('#menu');
   const darkToggle = document.getElementById('dark-toggle');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  console.debug('nav.js init', { menuBtn: !!menuBtn, mainNav: !!mainNav, darkToggle: !!darkToggle });
+  // If the page has a navigation but no toggler, create a lightweight toggler for mobile
+  if (mainNav && !menuBtn) {
+    console.debug('nav.js: no toggler found, creating fallback toggler');
+    const fallback = document.createElement('button');
+    fallback.id = 'menu-btn';
+    fallback.type = 'button';
+    fallback.className = 'site-toggler';
+    fallback.setAttribute('aria-controls', 'main-nav');
+    fallback.setAttribute('aria-expanded', 'false');
+    fallback.setAttribute('aria-label', 'Toggle navigation menu');
+    fallback.textContent = '☰';
+    // Insert before the mainNav so it inherits CSS; prefer nav > first child
+    if (mainNav.parentNode) mainNav.parentNode.insertBefore(fallback, mainNav);
+    menuBtn = fallback;
+  }
+  // Mark the toggler as initialized so CSS debug helpers can highlight it
+  if (menuBtn && typeof menuBtn.setAttribute === 'function') menuBtn.setAttribute('data-nav-initialized', 'true');
   // If element not found, skip gracefully - allow pages without nav.
   if (!menuBtn && !darkToggle) return;
 
@@ -42,18 +61,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Pointer event support covers touch and mouse events consistently
+    let ignoreNextClick = false;
     menuBtn.addEventListener('pointerdown', (e) => {
       e.preventDefault();
       // ensure button doesn't act as a submit button
       if (menuBtn.type !== 'button') menuBtn.type = 'button';
+      // set a short flag to prevent the subsequent click event from double toggling
+      ignoreNextClick = true;
+      setTimeout(() => { ignoreNextClick = false; }, 200);
       toggle();
     });
 
     // click fallback (some environments rely on click)
     menuBtn.addEventListener('click', (e) => {
+      if (ignoreNextClick) {
+        // skip handled pointerdown
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
       toggle();
     });
+
+    // Log interactions for debugging
+    ['pointerdown','click'].forEach(name => menuBtn.addEventListener(name, (e) => console.debug('nav.js event', name, 'expanded:', menuBtn.getAttribute('aria-expanded'))));
 
     menuBtn.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
