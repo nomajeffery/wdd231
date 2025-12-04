@@ -83,7 +83,7 @@ header {
 .site-btn {
   display: inline-block;
   background: var(--primary);
-  color: var(--light);
+  color: var(--dark);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;

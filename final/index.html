@@ -1,137 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>NomaShop — Online Shopping</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="NomaShop — phones, electronics, fashion, appliances & more." />
-  <link rel="icon" href="images/favicon.ico">
-  <!-- Font Awesome CDN removed per user request - using unicode fallback icons instead -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop</title>
   <link rel="stylesheet" href="styles/style.css">
+  <script src="script/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <header>
-    <div class="site-container">
-      <nav class="site-navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="site-brand">NomaShop</a>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="logo">🛒 MyShop</div>
 
-        <button id="nav-toggler" type="button" class="site-toggler" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon icon-nav" aria-hidden="true">☰</span>
-        </button>
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        <div id="main-nav" class="site-collapse" aria-hidden="true">
-          <ul id="category-nav" role="menubar" aria-label="Categories">
-            <li role="none"><a role="menuitem" href="#" data-category="All" data-active="true">All</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Phones">Phones</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Electronics">Electronics</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Fashion">Fashion</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Home Appliances">Home</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Audio">Audio</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Beauty">Beauty</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Computers">Computers</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Kitchen">Kitchen</a></li>
-            <li role="none"><a role="menuitem" href="#" data-category="Accessories">Accessories</a></li>
-          </ul>
-        </div>
-
-        <div class="cart">
-          <button id="cart-btn" type="button" aria-haspopup="true" aria-controls="cart-container" aria-expanded="false">
-            <span class="icon icon-cart" aria-hidden="true">🛒</span>
-            <span id="cart-count-info" aria-live="polite">0</span>
-          </button>
-
-          <div id="cart-container" class="cart-container" hidden>
-            <div id="cart-list" class="cart-list" aria-live="polite">
-              <!-- injected -->
-            </div>
-            <div class="cart-total">
-              <h3>Total: $<span id="cart-total-value">0.00</span></h3>
-              <p><a href="checkout.html" id="checkout-link" class="site-btn">Checkout</a></p>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div class="banner">
-        <div class="banner-content">
-          <h1>Everything You Need — Delivered Fast</h1>
-          <p class="text">Phones, electronics, fashion, appliances & more.</p>
-
-          <!-- Search & Controls -->
-          <div class="search-controls">
-            <label for="search" class="visually-hidden">Search products</label>
-              <input id="search" type="search" class="search-input" placeholder="Search products (e.g. 'iPhone', 'speaker')">
-              <button id="search-btn" type="button" class="site-btn" aria-label="Search products">Search</button>
-            <select id="sort-select" class="sort-select" aria-label="Sort products">
-              <option value="default">Sort: Featured</option>
-              <option value="price-asc">Price: Low → High</option>
-              <option value="price-desc">Price: High → Low</option>
-              <option value="name-asc">Name: A → Z</option>
-            </select>
-          </div>
-
-          <div class="site-btns">
-            <button class="site-btn" id="view-all" type="button">View All</button>
-            <a href="checkout.html" class="site-btn">Go to Checkout</a>
-          </div>
-        </div>
-
-        <div class="banner-img">
-          <img src="images/banner-img.png" alt="shopping banner" loading="lazy">
-        </div>
-      </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for products...">
+      <button id="searchBtn">🔍</button>
     </div>
-  </header>
 
-  <main>
-    <section class="products">
-      <div class="site-container">
-        <h2>
-          Our Products 
-          <small id="product-count" class="product-count">(0)</small>
-        </h2>
+    <div class="header-icons">
+      <!-- User icon now links to login page -->
+      <a href="login.html" class="user-icon" aria-label="User Account">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <i class="fa-solid fa-heart" aria-label="Wishlist"></i>
 
-        <div id="product-list" class="product-list" aria-live="polite"></div>
-
-        <div id="pagination" class="pagination"></div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- product modal -->
-  <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" hidden>
-    <div class="modal-content" role="document">
-      <button id="modal-close" type="button" class="modal-close" aria-label="Close modal">&times;</button>
-      <div id="modal-body"></div>
+      <!-- Cart -->
+      <a href="cart.html" class="cart-icon">
+        <i class="fa-solid fa-cart-shopping" aria-label="Cart"></i>
+        <span id="cart-count">0</span>
+      </a>
     </div>
   </div>
 
-  <footer>
-    <div class="footer-banner">
-      <div class="site-container">
-        <h2>Unlimited Collection</h2>
-        <p class="text">Fast shipping · Secure payment · Great value</p>
-      </div>
-    </div>
-    <div class="site-container">
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook" class="social-link"><span class="icon icon-fb" aria-hidden="true">f</span></a>
-        <a href="#" aria-label="Twitter" class="social-link"><span class="icon icon-tw" aria-hidden="true">t</span></a>
-        <a href="#" aria-label="Instagram" class="social-link"><span class="icon icon-ig" aria-hidden="true">📷</span></a>
-      </div>
-      <p>
-        <a href="about.html">About</a> •
-        <a href="contact.html">Contact</a> •
-        <a href="terms.html">Terms</a> •
-        <a href="privacy.html">Privacy</a> •
-        <a href="attributions.html">Attributions</a>
-      </p>
-    </div>
-  </footer>
+  <!-- CATEGORY BAR -->
+  <nav class="category-bar" id="navMenu">
+    <button data-category="all" class="cat-btn active">All</button>
+    <button data-category="electronics" class="cat-btn">Electronics</button>
+    <button data-category="jewelery" class="cat-btn">Jewelery</button>
+    <button data-category="men's clothing" class="cat-btn">Men</button>
+    <button data-category="women's clothing" class="cat-btn">Women</button>
+  </nav>
+</header>
 
-  <script type="module" src="script/app.js"></script>
-  <script type="module" src="script/search.js"></script>
+<!-- MAIN CONTENT -->
+<main>
+  <div id="loading">Loading products...</div>
+  <div id="errorMsg"></div>
+  <div id="productList" class="product-list"></div>
+</main>
+
+<!-- QUICK VIEW MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modal-img" src="" alt="Product">
+    <h3 id="modal-title"></h3>
+    <p id="modal-price"></p>
+    <p id="modal-category"></p>
+    <p id="modal-desc"></p>
+    <button id="modal-cart-btn" class="btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© <span id="year"></span> MyShop</p>
+</footer>
+
+
 </body>
 </html>

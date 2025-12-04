@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop - Cart</title>
+  <link rel="stylesheet" href="styles/cart.css">
+  <script src="script/cart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="cart-header">
+  <h2>🛒 Shopping Cart</h2>
+  <a href="index.html" class="back-home">← Continue Shopping</a>
+</header>
+
+<main class="cart-container">
+  <div id="cart-items" class="cart-items"></div>
+
+  <!-- Summary Box -->
+  <div class="cart-summary">
+    <h3>Order Summary</h3>
+    <p>Items: <span id="summary-count">0</span></p>
+    <p class="total-row">Total: <span id="summary-total">₦0</span></p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</main>
+
+</body>
+</html>
