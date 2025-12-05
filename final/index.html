@@ -25,7 +25,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <script src="script/script.js" defer></script>
+  <script src="script/script.js" defer></script>
 </head>
 
 <body>
@@ -36,29 +36,35 @@
     <div class="logo">🛒 MyShop</div>
 
     <!-- Hamburger -->
-    <button class="hamburger" id="hamburger">
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search for products...">
-      <button id="searchBtn">🔍</button>
+      <input type="text" id="searchInput" placeholder="Search for products..." aria-label="Search products">
+      <button id="searchBtn" aria-label="Search">🔍</button>
     </div>
 
     <div class="header-icons">
-      <!-- User icon now links to login page -->
+
+      <!-- User icon -->
       <a href="login.html" class="user-icon" aria-label="User Account">
         <i class="fa-solid fa-user"></i>
       </a>
-      <i class="fa-solid fa-heart" aria-label="Wishlist"></i>
+
+      <!-- Wishlist icon  -->
+      <button class="wishlist-btn" aria-label="Wishlist">
+        <i class="fa-solid fa-heart"></i>
+      </button>
 
       <!-- Cart -->
-      <a href="cart.html" class="cart-icon">
-        <i class="fa-solid fa-cart-shopping" aria-label="Cart"></i>
+      <a href="cart.html" class="cart-icon" aria-label="Cart">
+        <i class="fa-solid fa-cart-shopping"></i>
         <span id="cart-count">0</span>
       </a>
+
     </div>
   </div>
 
@@ -80,11 +86,19 @@
 </main>
 
 <!-- QUICK VIEW MODAL -->
-<div id="modal" class="modal">
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img id="modal-img" src="" alt="Product">
-    <h3 id="modal-title"></h3>
+    <button class="close-btn" aria-label="Close">&times;</button>
+
+    <!--  transparent placeholder -->
+    <img id="modal-img"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+      alt="Product preview"
+    >
+
+    <!-- Fixed empty heading issue: aria-live -->
+    <h3 id="modal-title" aria-live="polite"></h3>
+
     <p id="modal-price"></p>
     <p id="modal-category"></p>
     <p id="modal-desc"></p>
@@ -96,7 +110,6 @@
 <footer class="site-footer">
   <p>© <span id="year"></span> MyShop</p>
 </footer>
-
 
 </body>
 </html>

@@ -204,7 +204,7 @@ main {
   display: block;
   padding: 10px;
   background: #007bff;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   border: none;
   border-radius: 4px;
