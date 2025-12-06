@@ -8,7 +8,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
-  color: #333;
+  color: #1a1a1a;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -61,6 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #1a1a1a;
 }
 
 .login-form-container .logo {
@@ -68,11 +69,13 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
+  color: #1a1a1a;
 }
 
 .login-form-container h2 {
   text-align: center;
   margin-bottom: 25px;
+  color: #1a1a1a;
 }
 
 .login-field {
@@ -83,30 +86,45 @@ body {
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
 .login-field input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  color: #1a1a1a;
+}
+
+.login-field input:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
 }
 
 .login-btn {
   width: 100%;
   padding: 12px;
-  background: #007bff;
+  background: #0056b3;
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
+  font-weight: 600;
 }
 
 .login-btn:hover {
-  background: #0056b3;
+  background: #003d82;
+}
+
+.login-btn:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
 }
 
 .login-footer {
@@ -116,12 +134,19 @@ body {
 }
 
 .login-footer a {
-  color: #007bff;
+  color: #003d82;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .login-footer a:hover {
   text-decoration: underline;
+  color: #002554;
+}
+
+.login-footer a:focus {
+  outline: 2px solid #003d82;
+  outline-offset: 2px;
 }
 
 /* Responsive for small screens */

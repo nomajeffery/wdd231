@@ -1,16 +1,23 @@
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+export function initializeLoginForm() {
+  const form = document.getElementById('loginForm');
 
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
 
-  // For demo: log credentials
-  console.log('Login attempt:', { email, password });
+      // Basic client-side validation; let the form submit (method=GET action=form-result.html) when valid
+      if (!email || !password) {
+        e.preventDefault();
+        alert('⚠️ Please enter both email and password.');
+        return;
+      }
 
-  // TODO: Replace with backend API call for real authentication
-  if(email && password){
-    alert(`✅ Login submitted for: ${email}`);
-  } else {
-    alert('⚠️ Please enter both email and password.');
+      // when valid we allow the native GET submission so form-result.html can read URLSearchParams
+      // no e.preventDefault() here
+    });
   }
-});
+}
+
+// Auto-initialize on module load
+initializeLoginForm();

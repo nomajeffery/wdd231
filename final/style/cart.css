@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
+  color: #1a1a1a;
   margin: 0;
 }
 
@@ -16,11 +17,24 @@ body {
 .cart-header h2 {
   margin: 0;
   font-size: 22px;
+  color: #1a1a1a;
+  font-weight: 600;
 }
 
 .back-home {
   text-decoration: none;
-  color: #007bff;
+  color: #003d82;
+  font-weight: 600;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+  color: #002554;
+}
+
+.back-home:focus {
+  outline: 2px solid #003d82;
+  outline-offset: 2px;
 }
 
 .cart-container {
@@ -64,8 +78,9 @@ body {
 
 .cart-item-price {
   margin: 6px 0;
-  color: #007bff;
+  color: #003d82;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .qty-box {
@@ -78,17 +93,45 @@ body {
 .qty-btn {
   width: 30px;
   height: 30px;
-  border: none;
-  background: #ddd;
+  border: 2px solid #999;
+  background: #f0f0f0;
+  color: #1a1a1a;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.qty-btn:hover {
+  background: #e0e0e0;
+  border-color: #666;
+}
+
+.qty-btn:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: -2px;
 }
 
 .remove-btn {
-  color: red;
+  background: none;
+  border: none;
+  color: #c41e3a;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  text-decoration: underline;
+}
+
+.remove-btn:hover {
+  color: #8b1528;
+  text-decoration: none;
+}
+
+.remove-btn:focus {
+  outline: 2px solid #c41e3a;
+  outline-offset: 2px;
 }
 
 /* Summary */
@@ -113,16 +156,23 @@ body {
 .checkout-btn {
   width: 100%;
   padding: 12px;
-  background: #ff9900;
+  background: #0056b3;
   color: white;
   border: none;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
+  transition: background 0.3s;
 }
 
 .checkout-btn:hover {
-  background: #e68a00;
+  background: #003d82;
+}
+
+.checkout-btn:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
 }
 
 /* Mobile */

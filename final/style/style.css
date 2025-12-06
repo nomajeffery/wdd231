@@ -5,10 +5,49 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #ffffff;
+  --text: #111827;         /* very dark gray for body text */
+  --muted: #6b7280;
+  --primary: #0066cc;      /* accessible blue on white (≈4.6:1) */
+  --primary-strong: #004a99;
+  --secondary: #111827;    /* dark for secondary actions */
+  --accent: #c0392b;       /* cart badge / error */
+  --focus: #ffb703;        /* bright focus ring */
+  --white: #ffffff;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* SKIP LINK (previously inline in index.html) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  z-index: 1000;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  outline: none;
 }
 
 /* CART COUNT */
@@ -18,15 +57,16 @@ body {
 }
 
 #cart-count {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  font-weight: bold;
+  display: inline-block;
+  min-width: 20px;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-align: center;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 999px;
+  vertical-align: middle;
 }
 
 /* HEADER */
@@ -50,6 +90,7 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
+  color: #111827;
 }
 
 .search-bar {
@@ -129,19 +170,29 @@ body {
 }
 
 .category-bar .cat-btn {
-  padding: 6px 12px;
-  border: none;
-  background: #e0e0e0;
-  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid transparent;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
   white-space: nowrap;
   transition: 0.3s;
 }
 
 .category-bar .cat-btn:hover,
-.category-bar .cat-btn.active {
-  background: #007bff;
-  color: white;
+.category-bar .cat-btn:focus {
+  background: rgba(0, 102, 204, 0.08);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+.category-bar .cat-btn.active,
+.category-bar .cat-btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary-strong);
 }
 
 /* MAIN */
@@ -201,20 +252,56 @@ main {
 }
 
 .product-card .btn {
-  display: block;
-  padding: 10px;
-  background: #007bff;
-  color: rgb(0, 0, 0);
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
   border: none;
-  border-radius: 4px;
-  margin-top: auto;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  text-decoration: none;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+  margin-top: auto;
 }
 
 .product-card .btn:hover {
   background: #0056b3;
+}
+
+/* Quick View (secondary) - dark background with white text for strong contrast */
+.view-btn {
+  background: var(--secondary);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.view-btn:hover,
+.view-btn:active,
+.view-btn:focus {
+  background: #0d1114; /* slightly darker */
+  box-shadow: 0 0 0 3px rgba(17,24,39,0.12);
+  outline: none;
+}
+
+/* Add to Cart (primary) */
+.add-cart-btn {
+  background: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary-strong);
+}
+
+.add-cart-btn:hover,
+.add-cart-btn:active {
+  background: var(--primary-strong);
+}
+
+.add-cart-btn:focus,
+.view-btn:focus,
+.cat-btn:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 
 /* MODAL */
@@ -271,11 +358,19 @@ main {
 
 /* FOOTER */
 .site-footer {
+  background: #0b1220;
+  color: var(--white);
+  padding: 1rem;
   text-align: center;
-  padding: 15px;
-  background: #222;
-  color: white;
   margin-top: 30px;
+}
+
+/* Make focus visible for any interactive element missing explicit rules */
+button:focus,
+a:focus,
+input:focus {
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(255, 183, 3, 0.12);
 }
 
 /* RESPONSIVE */

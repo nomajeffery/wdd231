@@ -52,12 +52,12 @@ function renderCart() {
           <p class="cart-item-price">₦${item.price}</p>
 
           <div class="qty-box">
-            <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
-            <span>${item.qty}</span>
-            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+            <button class="qty-btn" onclick="changeQty(${index}, -1)" aria-label="Decrease quantity for ${item.title}">−</button>
+            <span aria-label="Quantity: ${item.qty}">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)" aria-label="Increase quantity for ${item.title}">+</button>
           </div>
 
-          <p class="remove-btn" onclick="removeItem(${index})">Remove</p>
+          <button class="remove-btn" onclick="removeItem(${index})" aria-label="Remove ${item.title} from cart" type="button">Remove</button>
         </div>
       </div>
     `;
